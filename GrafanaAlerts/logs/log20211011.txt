@@ -1,0 +1,541 @@
+2021-10-11 16:29:52.772 +05:00 [INF] Starting web host
+2021-10-11 16:29:53.877 +05:00 [DBG] Hosting starting
+2021-10-11 16:29:54.684 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 16BD6800AE003F8B4D9494602FBE48CC607635E9)
+2021-10-11 16:29:54.774 +05:00 [INF] Now listening on: https://localhost:5001
+2021-10-11 16:29:54.778 +05:00 [INF] Now listening on: http://localhost:5000
+2021-10-11 16:29:54.779 +05:00 [DBG] Loaded hosting startup assembly GrafanaAlerts
+2021-10-11 16:29:54.781 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-11 16:29:54.783 +05:00 [INF] Hosting environment: Development
+2021-10-11 16:29:54.783 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts
+2021-10-11 16:29:54.783 +05:00 [DBG] Hosting started
+2021-10-11 16:29:54.904 +05:00 [DBG] Connection id "0HMCCL9PDOBM9" received FIN.
+2021-10-11 16:29:54.926 +05:00 [DBG] Connection id "0HMCCL9PDOBM9" accepted.
+2021-10-11 16:29:54.928 +05:00 [DBG] Connection id "0HMCCL9PDOBM9" started.
+2021-10-11 16:29:54.966 +05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-10-11 16:29:55.061 +05:00 [DBG] Connection id "0HMCCL9PDOBM9" stopped.
+2021-10-11 16:29:55.086 +05:00 [DBG] Connection id "0HMCCL9PDOBM9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 16:29:55.458 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" accepted.
+2021-10-11 16:29:55.473 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" started.
+2021-10-11 16:29:55.618 +05:00 [DBG] Connection "0HMCCL9PDOBMA" established using the following protocol: "Tls12"
+2021-10-11 16:29:55.812 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-10-11 16:29:55.816 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-10-11 16:29:56.105 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" completed keep alive response.
+2021-10-11 16:29:56.112 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 304.7687ms
+2021-10-11 16:29:56.311 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-10-11 16:29:56.640 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" completed keep alive response.
+2021-10-11 16:29:56.644 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 332.2402ms
+2021-10-11 16:30:39.711 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 377
+2021-10-11 16:30:39.730 +05:00 [DBG] POST requests are not supported
+2021-10-11 16:30:39.794 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 16:30:39.800 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 16:30:39.802 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:30:39.807 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:30:39.823 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-10-11 16:30:39.904 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 16:30:39.906 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 16:30:39.907 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 16:30:39.908 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 16:30:39.909 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 16:30:39.909 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 16:30:39.913 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:30:39.919 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:30:39.934 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 16:30:39.939 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 16:30:39.958 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 16:30:39.983 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 64.1805ms
+2021-10-11 16:30:39.986 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:30:39.987 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The JSON property name for 'GrafanaAlerts.Models.CreateAlertRequest.RuleId' collides with another property.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_SerializerPropertyNameConflict(Type type, JsonPropertyInfo jsonPropertyInfo)
+   at System.Text.Json.JsonClassInfo.CacheMember(Type declaringType, Type memberType, MemberInfo memberInfo, Nullable`1 typeNumberHandling, Dictionary`2 cache, Dictionary`2& ignoredMembers)
+   at System.Text.Json.JsonClassInfo..ctor(Type type, JsonSerializerOptions options)
+   at System.Text.Json.JsonSerializerOptions.GetOrAddClass(Type type)
+   at System.Text.Json.JsonSerializerOptions.GetOrAddClassForRootType(Type type)
+   at System.Text.Json.ReadStack.Initialize(Type type, JsonSerializerOptions options, Boolean supportContinuation)
+   at System.Text.Json.JsonSerializer.ReadAsync[TValue](Stream utf8Json, Type returnType, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 16:30:40.016 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" completed keep alive response.
+2021-10-11 16:30:40.018 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 377 - 500 - text/plain 311.6936ms
+2021-10-11 16:30:40.022 +05:00 [DBG] Connection id "0HMCCL9PDOBMA", Request id "0HMCCL9PDOBMA:00000004": started reading request body.
+2021-10-11 16:30:40.024 +05:00 [INF] Connection id "0HMCCL9PDOBMA", Request id "0HMCCL9PDOBMA:00000004": the application completed without reading the entire request body.
+2021-10-11 16:30:40.026 +05:00 [DBG] Connection id "0HMCCL9PDOBMA", Request id "0HMCCL9PDOBMA:00000004": done reading request body.
+2021-10-11 16:31:28.600 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" received FIN.
+2021-10-11 16:31:28.606 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" disconnecting.
+2021-10-11 16:31:28.616 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" sending FIN because: "The client closed the connection."
+2021-10-11 16:31:28.624 +05:00 [DBG] Connection id "0HMCCL9PDOBMA" stopped.
+2021-10-11 16:31:44.361 +05:00 [INF] Application is shutting down...
+2021-10-11 16:31:44.363 +05:00 [DBG] Hosting stopping
+2021-10-11 16:31:44.427 +05:00 [DBG] Hosting stopped
+2021-10-11 16:31:50.086 +05:00 [INF] Starting web host
+2021-10-11 16:31:50.591 +05:00 [DBG] Hosting starting
+2021-10-11 16:31:51.076 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 16BD6800AE003F8B4D9494602FBE48CC607635E9)
+2021-10-11 16:31:51.136 +05:00 [INF] Now listening on: https://localhost:5001
+2021-10-11 16:31:51.140 +05:00 [INF] Now listening on: http://localhost:5000
+2021-10-11 16:31:51.141 +05:00 [DBG] Loaded hosting startup assembly GrafanaAlerts
+2021-10-11 16:31:51.143 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-11 16:31:51.143 +05:00 [INF] Hosting environment: Development
+2021-10-11 16:31:51.144 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts
+2021-10-11 16:31:51.145 +05:00 [DBG] Hosting started
+2021-10-11 16:31:51.174 +05:00 [DBG] Connection id "0HMCCLAS2J4IL" received FIN.
+2021-10-11 16:31:51.199 +05:00 [DBG] Connection id "0HMCCLAS2J4IL" accepted.
+2021-10-11 16:31:51.205 +05:00 [DBG] Connection id "0HMCCLAS2J4IL" started.
+2021-10-11 16:31:51.240 +05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-10-11 16:31:51.279 +05:00 [DBG] Connection id "0HMCCLAS2J4IL" stopped.
+2021-10-11 16:31:51.287 +05:00 [DBG] Connection id "0HMCCLAS2J4IL" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 16:31:51.566 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" accepted.
+2021-10-11 16:31:51.572 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" started.
+2021-10-11 16:31:51.730 +05:00 [DBG] Connection "0HMCCLAS2J4IM" established using the following protocol: "Tls12"
+2021-10-11 16:31:51.920 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-10-11 16:31:51.924 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-10-11 16:31:52.193 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" completed keep alive response.
+2021-10-11 16:31:52.207 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 288.0500ms
+2021-10-11 16:31:52.348 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-10-11 16:31:52.610 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" completed keep alive response.
+2021-10-11 16:31:52.612 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 267.2658ms
+2021-10-11 16:32:02.378 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388
+2021-10-11 16:32:02.399 +05:00 [DBG] POST requests are not supported
+2021-10-11 16:32:02.463 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 16:32:02.468 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 16:32:02.470 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:02.476 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:02.490 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-10-11 16:32:02.563 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 16:32:02.565 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 16:32:02.566 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 16:32:02.566 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 16:32:02.567 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 16:32:02.568 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 16:32:02.570 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:32:02.572 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:32:02.589 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 16:32:02.595 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 16:32:02.599 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 16:32:02.610 +05:00 [DBG] Connection id "0HMCCLAS2J4IM", Request id "0HMCCLAS2J4IM:00000004": started reading request body.
+2021-10-11 16:32:02.612 +05:00 [DBG] Connection id "0HMCCLAS2J4IM", Request id "0HMCCLAS2J4IM:00000004": done reading request body.
+2021-10-11 16:32:02.631 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 16:32:02.632 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:02.633 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:02.633 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 16:32:02.650 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:02.663 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 16:32:02.682 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"string","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 16:32:02.698 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 123.2115ms
+2021-10-11 16:32:02.701 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:02.702 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The given key 'role' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GrafanaAlerts.Services.GrafanaAlertParseService.Parse(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/GrafanaAlertParseService.cs:line 16
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 35
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 16:32:02.764 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" completed keep alive response.
+2021-10-11 16:32:02.765 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388 - 500 - text/plain 391.5537ms
+2021-10-11 16:32:31.575 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 377
+2021-10-11 16:32:31.584 +05:00 [DBG] POST requests are not supported
+2021-10-11 16:32:31.587 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 16:32:31.589 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 16:32:31.590 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:31.591 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:31.596 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 16:32:31.598 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 16:32:31.598 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 16:32:31.599 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 16:32:31.600 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 16:32:31.600 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 16:32:31.600 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:32:31.604 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 16:32:31.608 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 16:32:31.610 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 16:32:31.611 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 16:32:31.612 +05:00 [DBG] Connection id "0HMCCLAS2J4IM", Request id "0HMCCLAS2J4IM:00000005": started reading request body.
+2021-10-11 16:32:31.614 +05:00 [DBG] Connection id "0HMCCLAS2J4IM", Request id "0HMCCLAS2J4IM:00000005": done reading request body.
+2021-10-11 16:32:31.618 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 16:32:31.618 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:31.618 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:31.625 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 16:32:31.626 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 16:32:31.628 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 16:32:31.631 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"string","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"role":"string","additionalProp2":"string","additionalProp3":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 16:32:31.635 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 33.9636ms
+2021-10-11 16:32:31.636 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 16:32:31.636 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The given key 'ke' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GrafanaAlerts.Services.GrafanaAlertParseService.Parse(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/GrafanaAlertParseService.cs:line 17
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 35
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 16:32:31.647 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" completed keep alive response.
+2021-10-11 16:32:31.648 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 377 - 500 - text/plain 78.8326ms
+2021-10-11 16:33:09.474 +05:00 [INF] Application is shutting down...
+2021-10-11 16:33:09.477 +05:00 [DBG] Hosting stopping
+2021-10-11 16:33:09.544 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" disconnecting.
+2021-10-11 16:33:09.547 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" stopped.
+2021-10-11 16:33:09.549 +05:00 [DBG] Connection id "0HMCCLAS2J4IM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 16:33:09.561 +05:00 [DBG] Hosting stopped
+2021-10-11 17:17:11.357 +05:00 [INF] Starting web host
+2021-10-11 17:17:12.017 +05:00 [DBG] Hosting starting
+2021-10-11 17:17:12.911 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 16BD6800AE003F8B4D9494602FBE48CC607635E9)
+2021-10-11 17:17:12.970 +05:00 [INF] Now listening on: https://localhost:5001
+2021-10-11 17:17:12.972 +05:00 [INF] Now listening on: http://localhost:5000
+2021-10-11 17:17:12.973 +05:00 [DBG] Loaded hosting startup assembly GrafanaAlerts
+2021-10-11 17:17:12.977 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-11 17:17:12.979 +05:00 [INF] Hosting environment: Development
+2021-10-11 17:17:12.980 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts
+2021-10-11 17:17:12.980 +05:00 [DBG] Hosting started
+2021-10-11 17:17:13.021 +05:00 [DBG] Connection id "0HMCCM47837CB" received FIN.
+2021-10-11 17:17:13.119 +05:00 [DBG] Connection id "0HMCCM47837CB" accepted.
+2021-10-11 17:17:13.122 +05:00 [DBG] Connection id "0HMCCM47837CB" started.
+2021-10-11 17:17:13.179 +05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-10-11 17:17:13.232 +05:00 [DBG] Connection id "0HMCCM47837CB" stopped.
+2021-10-11 17:17:13.241 +05:00 [DBG] Connection id "0HMCCM47837CB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 17:17:13.456 +05:00 [DBG] Connection id "0HMCCM47837CC" accepted.
+2021-10-11 17:17:13.460 +05:00 [DBG] Connection id "0HMCCM47837CC" started.
+2021-10-11 17:17:13.580 +05:00 [DBG] Connection "0HMCCM47837CC" established using the following protocol: "Tls12"
+2021-10-11 17:17:13.863 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-10-11 17:17:13.868 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-10-11 17:17:14.109 +05:00 [DBG] Connection id "0HMCCM47837CC" completed keep alive response.
+2021-10-11 17:17:14.140 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 264.8906ms
+2021-10-11 17:17:14.303 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-10-11 17:17:14.608 +05:00 [DBG] Connection id "0HMCCM47837CC" completed keep alive response.
+2021-10-11 17:17:14.610 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 307.9761ms
+2021-10-11 17:18:10.252 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388
+2021-10-11 17:18:10.276 +05:00 [DBG] POST requests are not supported
+2021-10-11 17:18:10.345 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 17:18:10.351 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 17:18:10.352 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:18:10.357 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:18:10.373 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-10-11 17:18:10.446 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 17:18:10.448 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 17:18:10.449 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 17:18:10.450 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 17:18:10.450 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 17:18:10.451 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 17:18:10.452 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:18:10.454 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:18:10.472 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:18:10.478 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 17:18:10.482 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 17:18:10.492 +05:00 [DBG] Connection id "0HMCCM47837CC", Request id "0HMCCM47837CC:00000004": started reading request body.
+2021-10-11 17:18:10.493 +05:00 [DBG] Connection id "0HMCCM47837CC", Request id "0HMCCM47837CC:00000004": done reading request body.
+2021-10-11 17:18:10.513 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 17:18:10.514 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:18:10.514 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:18:10.515 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:18:10.530 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:18:10.541 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 17:18:10.558 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"string","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 17:18:10.575 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 118.9047ms
+2021-10-11 17:18:10.578 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:18:10.580 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The given key 'role' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GrafanaAlerts.Services.GrafanaAlertParseService.Parse(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/GrafanaAlertParseService.cs:line 16
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 43
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 17:18:10.628 +05:00 [DBG] Connection id "0HMCCM47837CC" completed keep alive response.
+2021-10-11 17:18:10.629 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388 - 500 - text/plain 384.3106ms
+2021-10-11 17:18:43.374 +05:00 [DBG] Connection id "0HMCCM47837CC" received FIN.
+2021-10-11 17:18:43.389 +05:00 [DBG] Connection id "0HMCCM47837CC" disconnecting.
+2021-10-11 17:18:43.398 +05:00 [DBG] Connection id "0HMCCM47837CC" sending FIN because: "The client closed the connection."
+2021-10-11 17:18:43.409 +05:00 [DBG] Connection id "0HMCCM47837CC" stopped.
+2021-10-11 17:37:05.788 +05:00 [INF] Application is shutting down...
+2021-10-11 17:37:05.803 +05:00 [DBG] Hosting stopping
+2021-10-11 17:37:05.890 +05:00 [DBG] Hosting stopped
+2021-10-11 17:37:14.724 +05:00 [INF] Starting web host
+2021-10-11 17:37:15.316 +05:00 [DBG] Hosting starting
+2021-10-11 17:37:15.811 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 16BD6800AE003F8B4D9494602FBE48CC607635E9)
+2021-10-11 17:37:15.871 +05:00 [INF] Now listening on: https://localhost:5001
+2021-10-11 17:37:15.873 +05:00 [INF] Now listening on: http://localhost:5000
+2021-10-11 17:37:15.874 +05:00 [DBG] Loaded hosting startup assembly GrafanaAlerts
+2021-10-11 17:37:15.879 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-11 17:37:15.880 +05:00 [INF] Hosting environment: Development
+2021-10-11 17:37:15.882 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts
+2021-10-11 17:37:15.888 +05:00 [DBG] Hosting started
+2021-10-11 17:37:15.927 +05:00 [DBG] Connection id "0HMCCMFDNTC2R" received FIN.
+2021-10-11 17:37:15.980 +05:00 [DBG] Connection id "0HMCCMFDNTC2R" accepted.
+2021-10-11 17:37:15.985 +05:00 [DBG] Connection id "0HMCCMFDNTC2R" started.
+2021-10-11 17:37:16.039 +05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-10-11 17:37:16.107 +05:00 [DBG] Connection id "0HMCCMFDNTC2R" stopped.
+2021-10-11 17:37:16.118 +05:00 [DBG] Connection id "0HMCCMFDNTC2R" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 17:37:16.393 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" accepted.
+2021-10-11 17:37:16.398 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" started.
+2021-10-11 17:37:16.496 +05:00 [DBG] Connection "0HMCCMFDNTC2S" established using the following protocol: "Tls12"
+2021-10-11 17:37:16.745 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-10-11 17:37:16.755 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-10-11 17:37:16.985 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" completed keep alive response.
+2021-10-11 17:37:16.991 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 261.6471ms
+2021-10-11 17:37:17.117 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-10-11 17:37:17.361 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" completed keep alive response.
+2021-10-11 17:37:17.362 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 246.1480ms
+2021-10-11 17:37:25.259 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388
+2021-10-11 17:37:25.281 +05:00 [DBG] POST requests are not supported
+2021-10-11 17:37:25.348 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 17:37:25.353 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 17:37:25.355 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:37:25.360 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:37:25.375 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-10-11 17:37:25.441 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 17:37:25.443 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 17:37:25.444 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 17:37:25.445 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 17:37:25.446 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 17:37:25.446 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 17:37:25.447 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:37:25.449 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:37:25.461 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:37:25.467 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 17:37:25.470 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 17:37:25.483 +05:00 [DBG] Connection id "0HMCCMFDNTC2S", Request id "0HMCCMFDNTC2S:00000004": started reading request body.
+2021-10-11 17:37:25.485 +05:00 [DBG] Connection id "0HMCCMFDNTC2S", Request id "0HMCCMFDNTC2S:00000004": done reading request body.
+2021-10-11 17:37:25.511 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 17:37:25.512 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:37:25.512 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:37:25.512 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:37:25.532 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:37:25.544 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 17:37:25.568 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"string","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 17:37:25.584 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 131.454ms
+2021-10-11 17:37:25.587 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:37:25.588 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The given key 'role' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GrafanaAlerts.Services.GrafanaAlertParseService.Parse(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/GrafanaAlertParseService.cs:line 16
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 46
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 17:37:25.647 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" completed keep alive response.
+2021-10-11 17:37:25.651 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388 - 500 - text/plain 397.1913ms
+2021-10-11 17:38:17.801 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" received FIN.
+2021-10-11 17:38:17.819 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" disconnecting.
+2021-10-11 17:38:17.822 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" sending FIN because: "The client closed the connection."
+2021-10-11 17:38:17.844 +05:00 [DBG] Connection id "0HMCCMFDNTC2S" stopped.
+2021-10-11 17:39:33.978 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" accepted.
+2021-10-11 17:39:33.980 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" started.
+2021-10-11 17:39:34.036 +05:00 [DBG] Connection "0HMCCMFDNTC2T" established using the following protocol: "Tls12"
+2021-10-11 17:39:34.053 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 357
+2021-10-11 17:39:34.056 +05:00 [DBG] POST requests are not supported
+2021-10-11 17:39:34.058 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 17:39:34.058 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 17:39:34.059 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:39:34.060 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:39:34.065 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 17:39:34.066 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 17:39:34.066 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 17:39:34.067 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 17:39:34.068 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 17:39:34.068 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 17:39:34.068 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:39:34.069 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:39:34.071 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:39:34.073 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 17:39:34.073 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 17:39:34.074 +05:00 [DBG] Connection id "0HMCCMFDNTC2T", Request id "0HMCCMFDNTC2T:00000002": started reading request body.
+2021-10-11 17:39:34.074 +05:00 [DBG] Connection id "0HMCCMFDNTC2T", Request id "0HMCCMFDNTC2T:00000002": done reading request body.
+2021-10-11 17:39:34.077 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 17:39:34.078 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:39:34.078 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:39:34.078 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:39:34.079 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:39:34.080 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 17:39:34.083 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"234567","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"role":"string","ke":"string","priority":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 17:39:34.086 +05:00 [INF] Complementing new trouble ticket: {"Description":"234567","Ke":"string","Role":"string","Priority":"string","$type":"TroubleTicket"}
+2021-10-11 17:39:34.091 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 22.953ms
+2021-10-11 17:39:34.092 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:39:34.093 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NotImplementedException: The method or operation is not implemented.
+   at GrafanaAlerts.Services.AdditionTroubleInformationProviderService.Complete(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/AdditionTroubleInformationProviderService.cs:line 10
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 52
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 17:39:34.102 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" completed keep alive response.
+2021-10-11 17:39:34.102 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 357 - 500 - text/plain 50.7580ms
+2021-10-11 17:39:52.220 +05:00 [INF] Application is shutting down...
+2021-10-11 17:39:52.223 +05:00 [DBG] Hosting stopping
+2021-10-11 17:39:52.260 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" disconnecting.
+2021-10-11 17:39:52.260 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" stopped.
+2021-10-11 17:39:52.261 +05:00 [DBG] Connection id "0HMCCMFDNTC2T" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 17:39:52.269 +05:00 [DBG] Hosting stopped
+2021-10-11 17:40:37.077 +05:00 [INF] Starting web host
+2021-10-11 17:40:37.614 +05:00 [DBG] Hosting starting
+2021-10-11 17:40:38.058 +05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 16BD6800AE003F8B4D9494602FBE48CC607635E9)
+2021-10-11 17:40:38.099 +05:00 [INF] Now listening on: https://localhost:5001
+2021-10-11 17:40:38.102 +05:00 [INF] Now listening on: http://localhost:5000
+2021-10-11 17:40:38.103 +05:00 [DBG] Loaded hosting startup assembly GrafanaAlerts
+2021-10-11 17:40:38.105 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-11 17:40:38.106 +05:00 [INF] Hosting environment: Development
+2021-10-11 17:40:38.107 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts
+2021-10-11 17:40:38.107 +05:00 [DBG] Hosting started
+2021-10-11 17:40:38.222 +05:00 [DBG] Connection id "0HMCCMHA1532F" received FIN.
+2021-10-11 17:40:38.266 +05:00 [DBG] Connection id "0HMCCMHA1532F" accepted.
+2021-10-11 17:40:38.272 +05:00 [DBG] Connection id "0HMCCMHA1532F" started.
+2021-10-11 17:40:38.365 +05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-10-11 17:40:38.419 +05:00 [DBG] Connection id "0HMCCMHA1532F" stopped.
+2021-10-11 17:40:38.427 +05:00 [DBG] Connection id "0HMCCMHA1532F" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 17:40:38.526 +05:00 [DBG] Connection id "0HMCCMHA1532G" accepted.
+2021-10-11 17:40:38.528 +05:00 [DBG] Connection id "0HMCCMHA1532G" started.
+2021-10-11 17:40:38.634 +05:00 [DBG] Connection "0HMCCMHA1532G" established using the following protocol: "Tls12"
+2021-10-11 17:40:38.919 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-10-11 17:40:38.928 +05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-10-11 17:40:39.211 +05:00 [DBG] Connection id "0HMCCMHA1532G" completed keep alive response.
+2021-10-11 17:40:39.218 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 315.0861ms
+2021-10-11 17:40:39.357 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-10-11 17:40:39.568 +05:00 [DBG] Connection id "0HMCCMHA1532G" completed keep alive response.
+2021-10-11 17:40:39.570 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 213.1203ms
+2021-10-11 17:40:45.383 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388
+2021-10-11 17:40:45.404 +05:00 [DBG] POST requests are not supported
+2021-10-11 17:40:45.467 +05:00 [DBG] 1 candidate(s) found for the request path '/api/alerts/helpdesk'
+2021-10-11 17:40:45.472 +05:00 [DBG] Endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)' with route pattern 'api/alerts/helpdesk' is valid for the request path '/api/alerts/helpdesk'
+2021-10-11 17:40:45.473 +05:00 [DBG] Request matched endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:40:45.479 +05:00 [INF] Executing endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:40:45.493 +05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-10-11 17:40:45.564 +05:00 [INF] Route matched with {action = "CreateHelpdeskAlert", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task CreateHelpdeskAlert(GrafanaAlerts.Models.CreateAlertRequest) on controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts).
+2021-10-11 17:40:45.566 +05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-10-11 17:40:45.567 +05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2021-10-11 17:40:45.568 +05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2021-10-11 17:40:45.569 +05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-10-11 17:40:45.570 +05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2021-10-11 17:40:45.572 +05:00 [DBG] Executing controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:40:45.574 +05:00 [DBG] Executed controller factory for controller GrafanaAlerts.Controllers.GrafanaController (GrafanaAlerts)
+2021-10-11 17:40:45.587 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:40:45.593 +05:00 [DBG] Attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' using the name '' in request data ...
+2021-10-11 17:40:45.596 +05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2021-10-11 17:40:45.607 +05:00 [DBG] Connection id "0HMCCMHA1532G", Request id "0HMCCMHA1532G:00000004": started reading request body.
+2021-10-11 17:40:45.608 +05:00 [DBG] Connection id "0HMCCMHA1532G", Request id "0HMCCMHA1532G:00000004": done reading request body.
+2021-10-11 17:40:45.628 +05:00 [DBG] JSON input formatter succeeded, deserializing to type 'GrafanaAlerts.Models.CreateAlertRequest'
+2021-10-11 17:40:45.629 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:40:45.629 +05:00 [DBG] Done attempting to bind parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:40:45.629 +05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest' ...
+2021-10-11 17:40:45.646 +05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'GrafanaAlerts.Models.CreateAlertRequest'.
+2021-10-11 17:40:45.656 +05:00 [INF] Executing action method GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) - Validation state: "Valid"
+2021-10-11 17:40:45.681 +05:00 [INF] Got new grafana alert. Starting to parse request.. {"DashboardId":0,"EvalMatches":[{"Value":0,"Metric":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"$type":"EvaluationMatch"}],"ImageUrl":"string","Message":"string","OrganisationId":0,"PanelId":0,"RuleId":0,"RuleName":"string","RuleUrl":"string","State":"string","Tags":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"Title":"string","$type":"CreateAlertRequest"}
+2021-10-11 17:40:45.700 +05:00 [INF] Executed action GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts) in 123.9037ms
+2021-10-11 17:40:45.703 +05:00 [INF] Executed endpoint 'GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert (GrafanaAlerts)'
+2021-10-11 17:40:45.704 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Collections.Generic.KeyNotFoundException: The given key 'role' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at GrafanaAlerts.Services.GrafanaAlertParseService.Parse(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Services/GrafanaAlertParseService.cs:line 16
+   at GrafanaAlerts.Controllers.GrafanaController.CreateHelpdeskAlert(CreateAlertRequest request) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts/Controllers/GrafanaController.cs:line 46
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-10-11 17:40:45.749 +05:00 [DBG] Connection id "0HMCCMHA1532G" completed keep alive response.
+2021-10-11 17:40:45.751 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/alerts/helpdesk application/json 388 - 500 - text/plain 374.5207ms
+2021-10-11 17:41:03.596 +05:00 [INF] Application is shutting down...
+2021-10-11 17:41:03.618 +05:00 [DBG] Hosting stopping
+2021-10-11 17:41:03.655 +05:00 [DBG] Connection id "0HMCCMHA1532G" disconnecting.
+2021-10-11 17:41:03.659 +05:00 [DBG] Connection id "0HMCCMHA1532G" stopped.
+2021-10-11 17:41:03.660 +05:00 [DBG] Connection id "0HMCCMHA1532G" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-10-11 17:41:03.667 +05:00 [DBG] Hosting stopped
