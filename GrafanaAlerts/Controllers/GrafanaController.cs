@@ -13,7 +13,7 @@ namespace GrafanaAlerts.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class GrafanaController : ControllerBase
+    public sealed class GrafanaController : ControllerBase
     {
         private static readonly ActivitySource ActivitySource = new (nameof(GrafanaController));
         
@@ -72,15 +72,15 @@ namespace GrafanaAlerts.Controllers
                 }
                 catch (ServiceNotRespondingException exception)
                 {
-                    _logger.LogError("Error while complementing trouble ticket because service {Service} is not available. Exception: {@Exception}", exception.ServiceName, exception);
+                    _logger.LogError("Error while complementing trouble ticket because " + 
+                                     "service {Service} is not available. Exception: {@Exception}",
+                            exception.ServiceName, exception);
                     activity?.SetStatus(ActivityStatusCode.Error);
                     activity.RecordException(exception);
                     
                     return Problem(
                         $"Error while complementing trouble ticket because service {exception.ServiceName} is not available.", 
-                        $"{exception}", 
-                        503, 
-                        "Service Unavailable").StatusCode;
+                        $"{exception}", 503, "Service Unavailable").StatusCode;
                 }
             }
 

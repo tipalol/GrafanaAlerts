@@ -6,9 +6,12 @@ namespace GrafanaAlerts.Services
 {
     internal sealed class AdditionalTroubleInformationProviderService : IAdditionalTroubleInformationProviderService
     {
-        public Task<TroubleTicket> Complete(TroubleTicket ticket)
+        public async Task<TroubleTicket> Complete(TroubleTicket ticket)
         {
-            throw new ServiceNotRespondingException("Service is not available", "Some service");
+            await Task.Delay(500);
+
+            return ticket;
+            //throw new ServiceNotRespondingException("Service is not available", "Some service");
         }
     }
 }

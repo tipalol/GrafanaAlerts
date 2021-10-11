@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using GrafanaAlerts.Models;
 using Microsoft.Extensions.Configuration;
@@ -19,9 +20,11 @@ namespace GrafanaAlerts.Services
             _troubleTicketSystemHost = configuration["TroubleTicketSystemHost"];
         }
         
-        public Task<HttpStatusCode> Register(TroubleTicket ticket)
+        public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
-            throw new System.NotImplementedException();
+            var response = await _client.PostAsJsonAsync(_troubleTicketSystemHost, ticket);
+
+            return response.StatusCode;
         }
 
         public void Dispose()
