@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using GrafanaAlerts.Exceptions;
 using GrafanaAlerts.Models;
 using Microsoft.Extensions.Logging;
@@ -19,29 +20,41 @@ namespace GrafanaAlerts.Services
         
         public TroubleTicket Parse(TriggerAlertRequest request)
         {
+            TroubleTicket ticket;
+            
             var description = request.Message;
             ThrowIfNull(description, nameof(request.Message), request);
             
             var tags = request.Tags;
             ThrowIfNull(tags, nameof(request.Tags), request);
-            
-            var role = tags[RoleTag];
-            var ke = tags[KeTag];
-            var priority = tags[PriorityTag];
-            
-            ThrowIfNull(role, nameof(RoleTag), request);
-            ThrowIfNull(ke, nameof(KeTag), request);
-            ThrowIfNull(priority, nameof(PriorityTag), request);
 
-            var ticket = new TroubleTicket
+            try
             {
-                Description = description,
-                Ke = ke,
-                Role = role,
-                Priority = priority
-            };
+                var role = tags[RoleTag];
+                var ke = tags[KeTag];
+                var priority = tags[PriorityTag];
+            
+                ThrowIfNull(role, nameof(RoleTag), request);
+                ThrowIfNull(ke, nameof(KeTag), request);
+                ThrowIfNull(priority, nameof(PriorityTag), request);
 
-            return ticket;
+                ticket = new TroubleTicket
+                {
+                    Description = description,
+                    Ke = ke,
+                    Role = role,
+                    Priority = priority
+                };
+                
+                return ticket;
+            }
+            catch (KeyNotFoundException exception)
+            {
+                _logger.LogError("Grafana request does not contain all tags needed.. " +
+                                 "Exception: {@Exception}, Request: {@Request}", exception, request);
+                
+                throw new GrafanaAlertParseException("Grafana request does not contain all tags needed", request);
+            }
         }
 
         private void ThrowIfNull(object nullable, string name, TriggerAlertRequest request)
