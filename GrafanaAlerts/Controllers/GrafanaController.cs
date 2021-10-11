@@ -39,7 +39,7 @@ namespace GrafanaAlerts.Controllers
         /// </summary>
         /// <param name="request">Grafana request body</param>
         [HttpPost("trigger")]
-        public async Task<ActionResult> TriggerAlert([FromBody] TriggerAlertRequest request)
+        public async Task<int?> TriggerAlert([FromBody] TriggerAlertRequest request)
         {
             TroubleTicket ticket;
             TroubleTicket completeTicket;
@@ -58,7 +58,7 @@ namespace GrafanaAlerts.Controllers
                     activity?.SetStatus(ActivityStatusCode.Error);
                     activity.RecordException(exception);
                     
-                    return BadRequest(exception);
+                    return BadRequest(exception).StatusCode;
                 }
             }
             
@@ -80,7 +80,7 @@ namespace GrafanaAlerts.Controllers
                         $"Error while complementing trouble ticket because service {exception.ServiceName} is not available.", 
                         $"{exception}", 
                         503, 
-                        "Service Unavailable");
+                        "Service Unavailable").StatusCode;
                 }
             }
 
@@ -93,12 +93,12 @@ namespace GrafanaAlerts.Controllers
                     var result = await _ticketRegister.Register(completeTicket);
                     _logger.LogInformation("Ticket registered. Status: {Result}", result);
 
-                    if (result == HttpStatusCode.OK) return Ok();
+                    if (result == HttpStatusCode.OK) return Ok(completeTicket).StatusCode;
 
                     _logger.LogError("Registering status was not OK. Status: {Result}", result);
                     activity?.SetStatus(ActivityStatusCode.Error);
                     
-                    return BadRequest();
+                    return BadRequest($"Status code was not OK but {result}").StatusCode;
                 }
                 catch (ServiceNotRespondingException exception)
                 {
@@ -112,7 +112,7 @@ namespace GrafanaAlerts.Controllers
                         $"Error while complementing trouble ticket because service {exception.ServiceName} is not available.", 
                         $"{exception}", 
                         503, 
-                        "Service Unavailable");
+                        "Service Unavailable").StatusCode;
                 }
                 catch (HttpRequestException exception)
                 {
@@ -121,7 +121,7 @@ namespace GrafanaAlerts.Controllers
                     activity?.SetStatus(ActivityStatusCode.Error);
                     activity.RecordException(exception);
                     
-                    return BadRequest(exception);
+                    return BadRequest(exception).StatusCode;
                 }
             }
         }
