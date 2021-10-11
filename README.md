@@ -7,7 +7,7 @@ Web api to hook Grafana alerts and create trouble tickets from them
 ```
 docker build -t aspnetapp .  
 
-docker run -d -p 8080:80 --name myapp aspnetapp
+docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 ```
 
 2. Create new WebHook notification channel in Grafana with url - "yourAppUrl/api/alerts"
