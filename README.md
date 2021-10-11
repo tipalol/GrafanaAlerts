@@ -10,5 +10,5 @@ docker build -t aspnetapp .
 docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 ```
 
-2. Create new WebHook notification channel in Grafana with url - "yourAppUrl/api/alerts"
+2. Create new WebHook notification channel in Grafana with url - "yourAppUrl/api/trigger"
 3. Every alert in this channel will trigger dotnet method TriggerAlert which does parsing, complementing and registering of new trouble ticket in the system
