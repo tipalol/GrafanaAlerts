@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
@@ -15,6 +16,12 @@ namespace GrafanaAlerts.Controllers
     [Route("api")]
     public sealed class GrafanaController : ControllerBase
     {
+        private const string GrafanaAlertParseError = "Error while parsing Grafana alert. Maybe there are some missing tags";
+        private const string RegisteringTicketError = "Ticket management syste, returned error status code.";
+        private const string ServiceIsNotAvailableError = "Server is not available now.";
+        private const string HttpRequestError = "Error while sending request to the ticket system.";
+        private const string ConnectingTicketSystemError = "Error while connecting the ticket system. Maybe there is wrong url.";
+
         private static readonly ActivitySource ActivitySource = new (nameof(GrafanaController));
         
         private readonly ILogger<GrafanaController> _logger;
@@ -39,7 +46,7 @@ namespace GrafanaAlerts.Controllers
         /// </summary>
         /// <param name="request">Grafana request body</param>
         [HttpPost("trigger")]
-        public async Task<int?> TriggerAlert([FromBody] TriggerAlertRequest request)
+        public async Task<HttpStatusCode> TriggerAlert([FromBody] TriggerAlertRequest request)
         {
             TroubleTicket ticket;
             TroubleTicket completeTicket;
@@ -54,11 +61,11 @@ namespace GrafanaAlerts.Controllers
                 }
                 catch (GrafanaAlertParseException exception)
                 {
-                    _logger.LogError("Error while parsing grafana alert request. Exception: {@Exception}", exception);
-                    activity?.SetStatus(ActivityStatusCode.Error);
-                    activity.RecordException(exception);
+                    _logger.LogError(GrafanaAlertParseError + "Exception: {@Exception}", exception);
                     
-                    return BadRequest(exception).StatusCode;
+                    StopWithError(activity, GrafanaAlertParseError, exception);
+
+                    return HttpStatusCode.BadRequest;
                 }
             }
             
@@ -72,15 +79,13 @@ namespace GrafanaAlerts.Controllers
                 }
                 catch (ServiceNotRespondingException exception)
                 {
-                    _logger.LogError("Error while complementing trouble ticket because " + 
-                                     "service {Service} is not available. Exception: {@Exception}",
+                    _logger.LogError(ServiceIsNotAvailableError + 
+                                     "Service {Service} is not available. Exception: {@Exception}",
                             exception.ServiceName, exception);
-                    activity?.SetStatus(ActivityStatusCode.Error);
-                    activity.RecordException(exception);
                     
-                    return Problem(
-                        $"Error while complementing trouble ticket because service {exception.ServiceName} is not available.", 
-                        $"{exception}", 503, "Service Unavailable").StatusCode;
+                    StopWithError(activity, ServiceIsNotAvailableError, exception);
+
+                    return HttpStatusCode.ServiceUnavailable;
                 }
             }
 
@@ -91,39 +96,59 @@ namespace GrafanaAlerts.Controllers
                 try
                 {
                     var result = await _ticketRegister.Register(completeTicket);
+                    
                     _logger.LogInformation("Ticket registered. Status: {Result}", result);
 
-                    if (result == HttpStatusCode.OK) return Ok(completeTicket).StatusCode;
+                    if (result == HttpStatusCode.OK) return HttpStatusCode.OK;
 
-                    _logger.LogError("Registering status was not OK. Status: {Result}", result);
-                    activity?.SetStatus(ActivityStatusCode.Error);
+                    _logger.LogError(RegisteringTicketError + "Status: {Result}", result);
                     
-                    return BadRequest($"Status code was not OK but {result}").StatusCode;
+                    StopWithError(activity, RegisteringTicketError, 
+                        new Exception(RegisteringTicketError + $"Status: {result}"));
+                    
+                    return HttpStatusCode.BadRequest;
                 }
                 catch (ServiceNotRespondingException exception)
                 {
                     _logger.LogError(
-                        "Error while registering trouble ticket because service {Service} is not available. Exception: {@Exception}",
+                        ServiceIsNotAvailableError + " {Service} is not available. Exception: {@Exception}",
                         exception.ServiceName, exception);
-                    activity?.SetStatus(ActivityStatusCode.Error);
-                    activity.RecordException(exception);
                     
-                    return Problem(
-                        $"Error while complementing trouble ticket because service {exception.ServiceName} is not available.", 
-                        $"{exception}", 
-                        503, 
-                        "Service Unavailable").StatusCode;
+                    StopWithError(activity, ServiceIsNotAvailableError, exception);
+
+                    return HttpStatusCode.ServiceUnavailable;
                 }
                 catch (HttpRequestException exception)
                 {
-                    _logger.LogError(
-                        "Http error while registering trouble ticket. Exception: {@Exception}", exception);
-                    activity?.SetStatus(ActivityStatusCode.Error);
-                    activity.RecordException(exception);
+                    _logger.LogError(HttpRequestError + " Exception: {@Exception}", exception);
                     
-                    return BadRequest(exception).StatusCode;
+                    StopWithError(activity, HttpRequestError, exception);
+                    
+                    return HttpStatusCode.BadRequest;
+                }
+                catch (InvalidOperationException exception)
+                {
+                    _logger.LogError(ConnectingTicketSystemError + " Exception: {@Exception}", exception);
+                    
+                    StopWithError(activity, ConnectingTicketSystemError, exception);
+
+                    return HttpStatusCode.BadRequest;
                 }
             }
+        }
+
+        private static void StopWithError(Activity activity, string errorMessage, Exception exception)
+        {
+            activity?.SetStatus(ActivityStatusCode.Error);
+            activity.RecordException(exception);
+            
+            activity?.Parent?
+                .SetStatus(ActivityStatusCode.Error)
+                .SetTag("http.status_code", 400)
+                .AddTag("error.message", errorMessage);
+            
+            activity?.Parent?.RecordException(exception);
+            activity?.Parent?.Stop();
         }
     }
 }
