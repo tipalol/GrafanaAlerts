@@ -21,6 +21,9 @@ namespace GrafanaAlerts.Services
         public TroubleTicket Parse(TriggerAlertRequest request)
         {
             TroubleTicket ticket;
+
+            var name = request.RuleName;
+            ThrowIfNull(name, nameof(request.RuleName), request);
             
             var description = request.Message;
             ThrowIfNull(description, nameof(request.Message), request);
@@ -40,6 +43,7 @@ namespace GrafanaAlerts.Services
 
                 ticket = new TroubleTicket
                 {
+                    Name = name,
                     Description = description,
                     Ke = ke,
                     Role = role,

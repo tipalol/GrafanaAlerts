@@ -42,6 +42,7 @@ namespace GrafanaAlerts
             services.AddSingleton<IAdditionalTroubleInformationProviderService, 
                 AdditionalTroubleInformationProviderService>();
             services.AddSingleton<ITicketRegisterService, TicketRegisterService>();
+            services.AddSingleton<IRequestProviderService, RequestProviderService>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
