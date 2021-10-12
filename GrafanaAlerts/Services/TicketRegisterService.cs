@@ -12,17 +12,18 @@ namespace GrafanaAlerts.Services
     {
         private readonly HttpClient _client;
         private readonly string _troubleTicketSystemHost;
-        
-        
+
         public TicketRegisterService(IConfiguration configuration)
         {
             _client = new HttpClient();
             _troubleTicketSystemHost = configuration["TroubleTicketSystemHost"];
         }
+
+        private string RegisterTicketApiMethod => $"{_troubleTicketSystemHost}/createTT";
         
         public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
-            var response = await _client.PostAsJsonAsync(_troubleTicketSystemHost, ticket);
+            var response = await _client.PostAsJsonAsync(RegisterTicketApiMethod, ticket);
 
             return response.StatusCode;
         }
