@@ -20,4 +20,6 @@ docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 * Ticket priority - from Alert tag "priority"
 * Ticket ke - from Alert tag "ke"
 
-4. Every alert in this channel will trigger dotnet method TriggerAlert which does parsing, complementing and registering of new trouble ticket in the system
+4. Settings located inside "appsettings.json" such as: TicketSystemHost, SoapTemplateRequestsLocation, JaegerAgentHost and etc.
+
+5. Every alert in this channel will trigger dotnet method TriggerAlert which does parsing, complementing and registering of new trouble ticket in the system
