@@ -17,7 +17,6 @@ namespace GrafanaAlerts.Services
 
         private readonly IRequestProviderService _requestProvider;
         private readonly ILogger<TicketRegisterService> _logger;
-        private static int RegisteredTickets;
 
         public TicketRegisterService(IConfiguration configuration, IRequestProviderService requestProvider, ILogger<TicketRegisterService> logger)
         {
@@ -34,9 +33,14 @@ namespace GrafanaAlerts.Services
             _logger.LogInformation("Getting CreateTTRequest...");
             var rawRequest = _requestProvider.GetRequest("CreateTTRequest");
             _logger.LogInformation("Got request {@Request}", rawRequest);
+
+            var id = EnvironmentHelper.GetTicketsCount();
+            _logger.LogInformation("There is {Id} tickets in system. Incrementing..", id);
+            id = EnvironmentHelper.AddTicket();
+
             var request = new RequestBuilder(rawRequest)
                 .ChangeAttribute("GUID", Guid.NewGuid().ToString())
-                .ChangeAttribute("Id", RegisteredTickets.ToString())
+                .ChangeAttribute("Id", $"GRAFANA{id}")
                 .ChangeAttribute("DateTime", DateTime.Now.ToString("O"))
                 .ChangeAttribute("AlertDescription", ticket.Description)
                 .ChangeAttribute("AlertName", ticket.Name)
