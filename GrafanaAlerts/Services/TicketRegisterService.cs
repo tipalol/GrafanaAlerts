@@ -26,7 +26,7 @@ namespace GrafanaAlerts.Services
             _logger = logger;
         }
 
-        private string RegisterTicketApiMethod => $"{_troubleTicketSystemHost}/createTT";
+        private string RegisterTicketApiMethod => $"{_troubleTicketSystemHost}";
         
         public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
