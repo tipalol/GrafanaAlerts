@@ -40,7 +40,7 @@ namespace GrafanaAlerts.Services
 
             var request = new RequestBuilder(rawRequest)
                 .ChangeAttribute("GUID", Guid.NewGuid().ToString())
-                .ChangeAttribute("Id", $"GRAFANA{id}")
+                .ChangeAttribute("ID", $"GRAFANA{id}")
                 .ChangeAttribute("DateTime", DateTime.Now.ToString("O"))
                 .ChangeAttribute("AlertDescription", ticket.Description)
                 .ChangeAttribute("AlertName", ticket.Name)
