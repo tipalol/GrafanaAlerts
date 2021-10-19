@@ -17,15 +17,15 @@ namespace GrafanaAlerts
                 .Enrich.FromLogContext()
                 .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
                 .WriteTo.Console()
-                .WriteTo.Graylog(
-                    new GraylogSinkOptions()
-                    {
-                        HostnameOrAddress = "185.229.224.209",
-                        Port = 12201,
-                        TransportType = TransportType.Http,
-                        UseSsl = false,
-                        MinimumLogEventLevel = LogEventLevel.Debug
-                    })
+                // .WriteTo.Graylog(
+                //     new GraylogSinkOptions()
+                //     {
+                //         HostnameOrAddress = "185.229.224.209",
+                //         Port = 12201,
+                //         TransportType = TransportType.Http,
+                //         UseSsl = false,
+                //         MinimumLogEventLevel = LogEventLevel.Debug
+                //     })
                 .CreateLogger();
 
             try
