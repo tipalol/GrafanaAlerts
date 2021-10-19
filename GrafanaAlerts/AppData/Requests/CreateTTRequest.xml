@@ -4,7 +4,7 @@
         <CreateTT xmlns="urn:gf-trouble-ticket-management">
             <request xmlns="">
                 <activity xmlns="urn:gf-trouble-ticket-management:xsd">
-                    <operationDate>TimeStamp</operationDate>
+                    <operationDate>[DateTime]</operationDate>
                     <systemID>0</systemID>
                     <operationId>[GUID]</operationId>
                     <comment>TT from grafana</comment>
@@ -20,8 +20,8 @@
                     <initiatorType>0</initiatorType>
                     <fullDescription>[AlertDescription]</fullDescription>
                     <troubleType>[AlertName]</troubleType>
-                    <responsibleOrganizationalStructure>ROL000000000502</responsibleOrganizationalStructure>
-                    <priority>PRI000000000006</priority>
+                    <responsibleOrganizationalStructure>[Role]</responsibleOrganizationalStructure>
+                    <priority>[Priority]</priority>
                     <ownerSystem>0</ownerSystem>
                     <registrationSystem>0</registrationSystem>
                     <solutionState>TOPEN</solutionState>
@@ -31,7 +31,7 @@
                     <dependenceType>0</dependenceType>
                     <branch>FIL000000000001</branch>
                     <requestType>0</requestType>
-                    <occurrenceTime>TimeStamp</occurrenceTime>
+                    <occurrenceTime>[DateTime]</occurrenceTime>
                     <externalSystemInfluence>0</externalSystemInfluence>
                     <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
                 </generalTTInfo>

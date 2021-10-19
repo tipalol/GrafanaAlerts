@@ -45,6 +45,8 @@ namespace GrafanaAlerts.Services
                 .ChangeAttribute("AlertDescription", ticket.Description)
                 .ChangeAttribute("AlertName", ticket.Name)
                 .ChangeAttribute("KE", ticket.Ke)
+                .ChangeAttribute("Role", "ROL000000000502")
+                .ChangeAttribute("Priority", "PRI000000000006")
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);
