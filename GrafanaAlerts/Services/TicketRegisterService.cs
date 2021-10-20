@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
 using GrafanaAlerts.Helpers;
 using GrafanaAlerts.Models;
@@ -14,6 +13,7 @@ namespace GrafanaAlerts.Services
     {
         private const string DefaultRole = "ROL000000000388";
         private const string DefaultPriority = "PRI000000000006";
+        private const string DefaultOperator = "BeeInside";
         
         private readonly HttpClient _client;
         private readonly bool _isCustomAllowed;
@@ -31,8 +31,6 @@ namespace GrafanaAlerts.Services
             _logger = logger;
         }
 
-        private string RegisterTicketApiMethod => $"{_troubleTicketSystemHost}";
-        
         public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
             _logger.LogInformation("Getting CreateTTRequest...");
@@ -55,12 +53,13 @@ namespace GrafanaAlerts.Services
                 .SetAttribute("KE", ticket.Ke)
                 .SetAttribute("Role",  role)
                 .SetAttribute("Priority", priority)
+                .SetAttribute("Operator", DefaultOperator)
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);
             
             _logger.LogInformation("Sending soap request to the Ticket system");
-            var response = await SoapHelper.SendRequest(RegisterTicketApiMethod, request);
+            var response = await SoapHelper.SendRequest(_troubleTicketSystemHost, request);
             
             _logger.LogInformation("Got response from Ticket System: @{Response}", response);
 

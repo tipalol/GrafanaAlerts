@@ -8,7 +8,7 @@
                     <systemID>2</systemID>
                     <operationId>[GUID]</operationId>
                     <comment>TT from grafana</comment>
-                    <operator>VIP</operator>
+                    <operator>[Operator]</operator>
                 </activity>
                 <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
                     <systemID>2</systemID>
@@ -16,7 +16,7 @@
                 </TTID>
                 <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">
                     <creationDate>[DateTime]</creationDate>
-                    <initiatorEmployee>VIP</initiatorEmployee>
+                    <initiatorEmployee>[Operator]</initiatorEmployee>
                     <initiatorType>0</initiatorType>
                     <fullDescription>[AlertDescription]</fullDescription>
                     <troubleType>[AlertName]</troubleType>

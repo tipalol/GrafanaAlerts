@@ -137,6 +137,57 @@ namespace GrafanaAlerts.Controllers
             }
         }
 
+        [HttpPost("troubles")]
+        public async Task<HttpStatusCode> CreateTrouble(TroubleTicket ticket)
+        {
+            _logger.LogInformation("Got new custom trouble request: {@Ticket}. Registering..", ticket);
+            
+            var activityName = $"{nameof(ITicketRegisterService)} is registering ticket";
+            using var activity = ActivitySource.StartActivity(activityName, ActivityKind.Producer);
+            
+            try
+            {
+                var result = await _ticketRegister.Register(ticket);
+                    
+                _logger.LogInformation("Ticket registered. Status: {Result}", result);
+
+                if (result == HttpStatusCode.OK) return HttpStatusCode.OK;
+
+                _logger.LogError(RegisteringTicketError + "Status: {Result}", result);
+                    
+                StopWithError(activity, RegisteringTicketError, 
+                    new Exception(RegisteringTicketError + $"Status: {result}"));
+                    
+                return HttpStatusCode.BadRequest;
+            }
+            catch (ServiceNotRespondingException exception)
+            {
+                _logger.LogError(
+                    ServiceIsNotAvailableError + " {Service} is not available. Exception: {@Exception}",
+                    exception.ServiceName, exception);
+                    
+                StopWithError(activity, ServiceIsNotAvailableError, exception);
+
+                return HttpStatusCode.ServiceUnavailable;
+            }
+            catch (HttpRequestException exception)
+            {
+                _logger.LogError(HttpRequestError + " Exception: {@Exception}", exception);
+                    
+                StopWithError(activity, HttpRequestError, exception);
+                    
+                return HttpStatusCode.BadRequest;
+            }
+            catch (InvalidOperationException exception)
+            {
+                _logger.LogError(ConnectingTicketSystemError + " Exception: {@Exception}", exception);
+                    
+                StopWithError(activity, ConnectingTicketSystemError, exception);
+
+                return HttpStatusCode.BadRequest;
+            }
+        }
+
         private static void StopWithError(Activity activity, string errorMessage, Exception exception)
         {
             activity?.SetStatus(ActivityStatusCode.Error);
