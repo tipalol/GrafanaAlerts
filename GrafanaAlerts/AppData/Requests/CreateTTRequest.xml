@@ -5,13 +5,13 @@
             <request xmlns="">
                 <activity xmlns="urn:gf-trouble-ticket-management:xsd">
                     <operationDate>[DateTime]</operationDate>
-                    <systemID>0</systemID>
+                    <systemID>2</systemID>
                     <operationId>[GUID]</operationId>
                     <comment>TT from grafana</comment>
                     <operator>VIP</operator>
                 </activity>
                 <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
-                    <systemID>0</systemID>
+                    <systemID>2</systemID>
                     <internalTTID>[ID]</internalTTID>
                 </TTID>
                 <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">

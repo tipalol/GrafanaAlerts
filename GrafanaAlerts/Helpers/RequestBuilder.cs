@@ -9,7 +9,7 @@ namespace GrafanaAlerts.Helpers
             _request = request;
         }
 
-        public RequestBuilder ChangeAttribute(string name, string value)
+        public RequestBuilder SetAttribute(string name, string value)
         {
             _request = _request.Replace($"[{name}]", value);
 

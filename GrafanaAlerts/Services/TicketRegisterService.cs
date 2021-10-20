@@ -39,14 +39,14 @@ namespace GrafanaAlerts.Services
             id = EnvironmentHelper.AddTicket();
 
             var request = new RequestBuilder(rawRequest)
-                .ChangeAttribute("GUID", Guid.NewGuid().ToString())
-                .ChangeAttribute("ID", $"GRAFANA{id}")
-                .ChangeAttribute("DateTime", DateTime.Now.ToString("O"))
-                .ChangeAttribute("AlertDescription", ticket.Description)
-                .ChangeAttribute("AlertName", ticket.Name)
-                .ChangeAttribute("KE", ticket.Ke)
-                .ChangeAttribute("Role", "ROL000000000502")
-                .ChangeAttribute("Priority", "PRI000000000006")
+                .SetAttribute("GUID", Guid.NewGuid().ToString())
+                .SetAttribute("ID", $"{id}")
+                .SetAttribute("DateTime", DateTime.Now.ToString("O"))
+                .SetAttribute("AlertDescription", ticket.Description)
+                .SetAttribute("AlertName", ticket.Name)
+                .SetAttribute("KE", ticket.Ke)
+                .SetAttribute("Role", "ROL000000000502")
+                .SetAttribute("Priority", "PRI000000000006")
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);
