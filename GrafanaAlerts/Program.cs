@@ -1,4 +1,5 @@
 using System;
+using GrafanaAlerts.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -12,22 +13,24 @@ namespace GrafanaAlerts
     {
         public static int Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
+            var config = ConfigHelper.Load();
+            var loggerConfiguration = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
-                .WriteTo.Console()
-                // .WriteTo.Graylog(
-                //     new GraylogSinkOptions()
-                //     {
-                //         HostnameOrAddress = "185.229.224.209",
-                //         Port = 12201,
-                //         TransportType = TransportType.Http,
-                //         UseSsl = false,
-                //         MinimumLogEventLevel = LogEventLevel.Debug
-                //     })
-                .CreateLogger();
+                .WriteTo.File($"{config.Observability.TextLogsLocation}log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Console();
 
+            if (config.Observability.IsGraylogEnabled)
+                loggerConfiguration.WriteTo.Graylog(new GraylogSinkOptions()
+                {
+                    HostnameOrAddress = config.Observability.GraylogHost,
+                    Port = config.Observability.GraylogPort,
+                    TransportType = TransportType.Http,
+                    UseSsl = config.Observability.UseSsl,
+                });
+
+            Log.Logger = loggerConfiguration.CreateLogger();
+            
             try
             {
                 Log.Information("Starting web host");

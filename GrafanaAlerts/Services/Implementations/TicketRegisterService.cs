@@ -23,11 +23,12 @@ namespace GrafanaAlerts.Services.Implementations
         private readonly IRequestProviderService _requestProvider;
         private readonly ILogger<TicketRegisterService> _logger;
 
-        public TicketRegisterService(IConfiguration configuration, IRequestProviderService requestProvider, ILogger<TicketRegisterService> logger)
+        public TicketRegisterService(IRequestProviderService requestProvider, ILogger<TicketRegisterService> logger)
         {
             _client = new HttpClient();
-            _troubleTicketSystemHost = configuration["TroubleTicketSystemHost"];
-            _isCustomAllowed = configuration["AllowCustomProperties"].Contains("true");
+            var config = ConfigHelper.Load();
+            _troubleTicketSystemHost = config.App.TroubleTicketSystemHost;
+            _isCustomAllowed = config.App.AllowCustomProperties;
             _requestProvider = requestProvider;
             _logger = logger;
         }

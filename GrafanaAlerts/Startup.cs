@@ -1,4 +1,5 @@
 using GrafanaAlerts.Controllers;
+using GrafanaAlerts.Helpers;
 using GrafanaAlerts.Services;
 using GrafanaAlerts.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
@@ -22,16 +23,32 @@ namespace GrafanaAlerts
         
         public void ConfigureServices(IServiceCollection services)
         {
-            var jaegerAgentHost = Configuration["JaegerAgentHost"];
+            var config = ConfigHelper.Load();
             
-            services.AddOpenTelemetryTracing(
-                builder => builder
-                    .AddSource(nameof(GrafanaController))
-                    .AddAspNetCoreInstrumentation()
-                    .AddHttpClientInstrumentation()
-                    .AddConsoleExporter()
-                    .AddJaegerExporter(options => options.AgentHost = jaegerAgentHost)
+            if (config.Observability.IsJaegerAgentEnabled)
+            {
+                var jaegerAgentHost = config.Observability.JaegerAgentHost;
+            
+                services.AddOpenTelemetryTracing(
+                    builder => builder
+                        .AddSource(nameof(GrafanaController))
+                        .AddAspNetCoreInstrumentation()
+                        .AddHttpClientInstrumentation()
+                        .AddConsoleExporter()
+                        .AddJaegerExporter(options => options.AgentHost = jaegerAgentHost)
                 );
+            }
+            else
+            {
+                services.AddOpenTelemetryTracing(
+                    builder => builder
+                        .AddSource(nameof(GrafanaController))
+                        .AddAspNetCoreInstrumentation()
+                        .AddHttpClientInstrumentation()
+                        .AddConsoleExporter()
+                );
+            }
+            
             
             services.AddControllers();
             services.AddSwaggerGen(c =>

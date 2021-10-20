@@ -1,4 +1,5 @@
 using System.IO;
+using GrafanaAlerts.Helpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -9,9 +10,9 @@ namespace GrafanaAlerts.Services.Implementations
         private readonly string _requestsLocationPath;
         private readonly ILogger<RequestProviderService> _logger;
 
-        public RequestProviderService(IConfiguration configuration, ILogger<RequestProviderService> logger)
+        public RequestProviderService(ILogger<RequestProviderService> logger)
         {
-            _requestsLocationPath =  configuration["RequestsLocationPath"];
+            _requestsLocationPath =  ConfigHelper.Load().App.SoapRequestsLocation;
             _logger = logger;
         }
         
