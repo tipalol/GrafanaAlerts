@@ -13,7 +13,7 @@ namespace GrafanaAlerts.Helpers
             if (_config != null)
                 return _config;
 
-            var json = File.ReadAllText("AppData/Configs/Config.json");
+            var json = File.ReadAllText("AppData/Configs/config");
             _config = JsonSerializer.Deserialize<Config>(json);
 
             return _config;
