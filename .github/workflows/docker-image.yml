@@ -16,5 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Debug ls
       run: ls
+    - name: Docker version
+      run: docker --version
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag aspnetapp:$(date +%s)
+      run: docker build . --file GrafanaAlerts/Dockerfile --tag aspnetapp:$(date +%s)
