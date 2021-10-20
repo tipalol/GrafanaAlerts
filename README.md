@@ -1,4 +1,7 @@
 # GrafanaAlerts
+
+[![.NET](https://github.com/tipalol/GrafanaAlerts/actions/workflows/dotnet.yml/badge.svg)](https://github.com/tipalol/GrafanaAlerts/actions/workflows/dotnet.yml)
+
 Web api to hook Grafana alerts and create trouble tickets from them
 
 ## Use
@@ -19,6 +22,8 @@ docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 * Ticket role - from Alert tag "role"
 * Ticket priority - from Alert tag "priority"
 * Ticket ke - from Alert tag "ke"
+* Ticket initiatorType - from Alert tag "initiatorType"
+* Ticket initatorRole - from Alert tag "iniatorRole"
 
 4. Settings located inside "appsettings.json" such as: TicketSystemHost, SoapTemplateRequestsLocation, JaegerAgentHost and etc.
 
