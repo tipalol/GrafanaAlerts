@@ -1,4 +1,7 @@
 # GrafanaAlerts
+
+[![.NET](https://github.com/tipalol/GrafanaAlerts/actions/workflows/dotnet.yml/badge.svg)](https://github.com/tipalol/GrafanaAlerts/actions/workflows/dotnet.yml)
+
 Web api to hook Grafana alerts and create trouble tickets from them
 
 ## Use
