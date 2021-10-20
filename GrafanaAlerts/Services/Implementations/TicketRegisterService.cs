@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using GrafanaAlerts.Enums;
 using GrafanaAlerts.Helpers;
 using GrafanaAlerts.Models;
 using Microsoft.Extensions.Configuration;
@@ -11,10 +12,25 @@ namespace GrafanaAlerts.Services.Implementations
 {
     internal sealed class TicketRegisterService : ITicketRegisterService, IDisposable
     {
+        private const string GuidTag = "GUID";
+        private const string IdTag = "ID";
+        private const string DatetimeTag = "DateTime";
+        private const string DescriptionTag = "AlertDescription";
+        private const string NameTag = "AlertName";
+        private const string KeTag = "KE";
+        private const string RoleTag = "Role";
+        private const string PriorityTag = "Priority";
+        private const string OperatorTag = "Operator";
+        private const string InitiatorTypeTag = "InitiatorType";
+        private const string InitiatorRoleTag = "InitiatorRole";
+        
         private const string DefaultRole = "ROL000000000388";
         private const string DefaultPriority = "PRI000000000006";
         private const string DefaultOperator = "BeeInside";
-        private const string DefaultInitiatorType = "1";
+        private const string DefaultInitiatorRole = "BeeInside";
+        private const InitiatorType DefaultInitiatorType = InitiatorType.Company;
+
+        private const string CreateTroubleTicketRequest = "CreateTTRequest";
         
         private readonly HttpClient _client;
         private readonly bool _isCustomAllowed;
@@ -36,29 +52,28 @@ namespace GrafanaAlerts.Services.Implementations
         public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
             _logger.LogInformation("Loading CreateTTRequest.xml...");
-            var rawRequest = _requestProvider.GetRequest("CreateTTRequest");
+            var rawRequest = _requestProvider.GetRequest(CreateTroubleTicketRequest);
 
-            var id = EnvironmentHelper.GetTicketsCount();
-            _logger.LogInformation("There is {Id} tickets in system. Incrementing..", id);
-            id = EnvironmentHelper.AddTicket();
+            var id = EnvironmentHelper.AddTicket();
+            _logger.LogInformation("There is {Id} tickets in system", id);
 
             var role = _isCustomAllowed ? ticket.Role : DefaultRole;
             var priority = _isCustomAllowed ? ticket.Priority : DefaultPriority;
             var initiatorType = _isCustomAllowed ? ticket.InitiatorType : DefaultInitiatorType;
-            var initiatorRole = ticket.InitiatorType == "0" ? DefaultOperator : ticket.InitiatorRole;
+            var initiatorRole = ticket.InitiatorType == InitiatorType.Person ? DefaultInitiatorRole : ticket.InitiatorRole;
 
             var request = new RequestBuilder(rawRequest)
-                .SetAttribute("GUID", Guid.NewGuid().ToString())
-                .SetAttribute("ID", $"{id}")
-                .SetAttribute("DateTime", DateTime.Now.ToString("O"))
-                .SetAttribute("AlertDescription", ticket.Description)
-                .SetAttribute("AlertName", ticket.Name)
-                .SetAttribute("KE", ticket.Ke)
-                .SetAttribute("Role",  role)
-                .SetAttribute("Priority", priority)
-                .SetAttribute("Operator", DefaultOperator)
-                .SetAttribute("InitiatorType", initiatorType)
-                .SetAttribute("InitiatorRole", initiatorRole)
+                .SetAttribute(GuidTag, Guid.NewGuid().ToString())
+                .SetAttribute(IdTag, $"{id}")
+                .SetAttribute(DatetimeTag, DateTime.Now.ToString("O"))
+                .SetAttribute(DescriptionTag, ticket.Description)
+                .SetAttribute(NameTag, ticket.Name)
+                .SetAttribute(KeTag, ticket.Ke)
+                .SetAttribute(RoleTag,  role)
+                .SetAttribute(PriorityTag, priority)
+                .SetAttribute(OperatorTag, DefaultOperator)
+                .SetAttribute(InitiatorTypeTag, $"{(int)initiatorType}")
+                .SetAttribute(InitiatorRoleTag, initiatorRole)
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);

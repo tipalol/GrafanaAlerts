@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using GrafanaAlerts.Enums;
 using GrafanaAlerts.Exceptions;
 using GrafanaAlerts.Models;
 using Microsoft.Extensions.Logging;
@@ -22,8 +24,6 @@ namespace GrafanaAlerts.Services.Implementations
         
         public TroubleTicket Parse(TriggerAlertRequest request)
         {
-            TroubleTicket ticket;
-
             var name = request.RuleName;
             ThrowIfNull(name, nameof(request.RuleName), request);
             
@@ -38,7 +38,7 @@ namespace GrafanaAlerts.Services.Implementations
                 var role = tags[RoleTag];
                 var ke = tags[KeTag];
                 var priority = tags[PriorityTag];
-                var initiatorType = tags[InitiatorTypeTag];
+                var initiatorType = Convert.ToInt32(tags[InitiatorTypeTag]);
                 var initiatorRole = tags[InitiatorRoleTag];
             
                 ThrowIfNull(role, nameof(RoleTag), request);
@@ -47,14 +47,17 @@ namespace GrafanaAlerts.Services.Implementations
                 ThrowIfNull(initiatorType, nameof(InitiatorTypeTag), request);
                 ThrowIfNull(initiatorRole, nameof(InitiatorRoleTag), request);
 
-                ticket = new TroubleTicket
+                var parsedInitiatorType = InitiatorType.Company;
+                if (initiatorType == 0) parsedInitiatorType = InitiatorType.Person;
+
+                var ticket = new TroubleTicket
                 {
                     Name = name,
                     Description = description,
                     Ke = ke,
                     Role = role,
                     Priority = priority,
-                    InitiatorType = initiatorType,
+                    InitiatorType = parsedInitiatorType,
                     InitiatorRole = initiatorRole
                 };
                 
@@ -68,7 +71,7 @@ namespace GrafanaAlerts.Services.Implementations
                 throw new GrafanaAlertParseException("Grafana request does not contain all tags needed", request);
             }
         }
-
+        
         private void ThrowIfNull(object nullable, string name, TriggerAlertRequest request)
         {
             if (nullable != null) return;

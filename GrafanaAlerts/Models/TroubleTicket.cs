@@ -1,3 +1,5 @@
+using GrafanaAlerts.Enums;
+
 namespace GrafanaAlerts.Models
 {
     public class TroubleTicket
@@ -7,7 +9,7 @@ namespace GrafanaAlerts.Models
         public string Ke { get; set; }
         public string Role { get; set; }
         public string Priority { get; set; }
-        public string InitiatorType { get; set; }
+        public InitiatorType InitiatorType { get; set; }
         public string InitiatorRole {get;set;}
     }
 }

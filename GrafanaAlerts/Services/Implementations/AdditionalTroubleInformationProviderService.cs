@@ -7,10 +7,9 @@ namespace GrafanaAlerts.Services.Implementations
     {
         public async Task<TroubleTicket> Complete(TroubleTicket ticket)
         {
-            await Task.Delay(500);
-
+            await Task.CompletedTask;
+            
             return ticket;
-            //throw new ServiceNotRespondingException("Service is not available", "Some service");
         }
     }
 }
