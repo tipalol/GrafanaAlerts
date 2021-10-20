@@ -12,7 +12,11 @@ namespace GrafanaAlerts.Services
 {
     internal sealed class TicketRegisterService : ITicketRegisterService, IDisposable
     {
+        private const string DefaultRole = "ROL000000000388";
+        private const string DefaultPriority = "PRI000000000006";
+        
         private readonly HttpClient _client;
+        private readonly bool _isCustomAllowed;
         private readonly string _troubleTicketSystemHost;
 
         private readonly IRequestProviderService _requestProvider;
@@ -22,6 +26,7 @@ namespace GrafanaAlerts.Services
         {
             _client = new HttpClient();
             _troubleTicketSystemHost = configuration["TroubleTicketSystemHost"];
+            _isCustomAllowed = configuration["AllowCustomRoleAndPriority"].Contains("true");
             _requestProvider = requestProvider;
             _logger = logger;
         }
@@ -38,6 +43,9 @@ namespace GrafanaAlerts.Services
             _logger.LogInformation("There is {Id} tickets in system. Incrementing..", id);
             id = EnvironmentHelper.AddTicket();
 
+            var role = _isCustomAllowed ? ticket.Role : DefaultRole;
+            var priority = _isCustomAllowed ? ticket.Priority : DefaultPriority;
+
             var request = new RequestBuilder(rawRequest)
                 .SetAttribute("GUID", Guid.NewGuid().ToString())
                 .SetAttribute("ID", $"{id}")
@@ -45,8 +53,8 @@ namespace GrafanaAlerts.Services
                 .SetAttribute("AlertDescription", ticket.Description)
                 .SetAttribute("AlertName", ticket.Name)
                 .SetAttribute("KE", ticket.Ke)
-                .SetAttribute("Role", "ROL000000000502")
-                .SetAttribute("Priority", "PRI000000000006")
+                .SetAttribute("Role",  role)
+                .SetAttribute("Priority", priority)
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);
