@@ -1,5 +1,6 @@
 using GrafanaAlerts.Controllers;
 using GrafanaAlerts.Services;
+using GrafanaAlerts.Services.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

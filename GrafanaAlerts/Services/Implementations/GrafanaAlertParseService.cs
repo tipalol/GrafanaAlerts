@@ -3,7 +3,7 @@ using GrafanaAlerts.Exceptions;
 using GrafanaAlerts.Models;
 using Microsoft.Extensions.Logging;
 
-namespace GrafanaAlerts.Services
+namespace GrafanaAlerts.Services.Implementations
 {
     internal sealed class GrafanaAlertParseService : IGrafanaAlertParseService
     {

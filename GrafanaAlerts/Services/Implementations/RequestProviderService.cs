@@ -2,7 +2,7 @@ using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace GrafanaAlerts.Services
+namespace GrafanaAlerts.Services.Implementations
 {
     internal sealed class RequestProviderService : IRequestProviderService
     {

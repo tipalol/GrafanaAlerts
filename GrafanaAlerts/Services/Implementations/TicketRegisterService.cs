@@ -7,7 +7,7 @@ using GrafanaAlerts.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace GrafanaAlerts.Services
+namespace GrafanaAlerts.Services.Implementations
 {
     internal sealed class TicketRegisterService : ITicketRegisterService, IDisposable
     {
@@ -33,9 +33,8 @@ namespace GrafanaAlerts.Services
 
         public async Task<HttpStatusCode> Register(TroubleTicket ticket)
         {
-            _logger.LogInformation("Getting CreateTTRequest...");
+            _logger.LogInformation("Loading CreateTTRequest.xml...");
             var rawRequest = _requestProvider.GetRequest("CreateTTRequest");
-            _logger.LogInformation("Got request {@Request}", rawRequest);
 
             var id = EnvironmentHelper.GetTicketsCount();
             _logger.LogInformation("There is {Id} tickets in system. Incrementing..", id);

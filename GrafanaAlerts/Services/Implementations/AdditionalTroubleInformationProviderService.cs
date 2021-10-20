@@ -1,8 +1,7 @@
 using System.Threading.Tasks;
-using GrafanaAlerts.Exceptions;
 using GrafanaAlerts.Models;
 
-namespace GrafanaAlerts.Services
+namespace GrafanaAlerts.Services.Implementations
 {
     internal sealed class AdditionalTroubleInformationProviderService : IAdditionalTroubleInformationProviderService
     {
