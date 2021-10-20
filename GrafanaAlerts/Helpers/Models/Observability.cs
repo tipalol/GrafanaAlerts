@@ -10,7 +10,7 @@ namespace GrafanaAlerts.Helpers.Models
         public int JaegerAgentPort { get; set; }
         
         //Clickhouse settings
-        public string IsClickhouseEnabled { get; set; }
+        public bool IsClickhouseEnabled { get; set; }
         public string ClickhouseHost { get; set; }
         
         // Graylog settings
