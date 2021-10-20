@@ -14,6 +14,7 @@ namespace GrafanaAlerts.Services.Implementations
         private const string DefaultRole = "ROL000000000388";
         private const string DefaultPriority = "PRI000000000006";
         private const string DefaultOperator = "BeeInside";
+        private const string DefaultInitiatorType = "1";
         
         private readonly HttpClient _client;
         private readonly bool _isCustomAllowed;
@@ -26,7 +27,7 @@ namespace GrafanaAlerts.Services.Implementations
         {
             _client = new HttpClient();
             _troubleTicketSystemHost = configuration["TroubleTicketSystemHost"];
-            _isCustomAllowed = configuration["AllowCustomRoleAndPriority"].Contains("true");
+            _isCustomAllowed = configuration["AllowCustomProperties"].Contains("true");
             _requestProvider = requestProvider;
             _logger = logger;
         }
@@ -42,6 +43,8 @@ namespace GrafanaAlerts.Services.Implementations
 
             var role = _isCustomAllowed ? ticket.Role : DefaultRole;
             var priority = _isCustomAllowed ? ticket.Priority : DefaultPriority;
+            var initiatorType = _isCustomAllowed ? ticket.InitiatorType : DefaultInitiatorType;
+            var initiatorRole = ticket.InitiatorType == "0" ? DefaultOperator : ticket.InitiatorRole;
 
             var request = new RequestBuilder(rawRequest)
                 .SetAttribute("GUID", Guid.NewGuid().ToString())
@@ -53,6 +56,8 @@ namespace GrafanaAlerts.Services.Implementations
                 .SetAttribute("Role",  role)
                 .SetAttribute("Priority", priority)
                 .SetAttribute("Operator", DefaultOperator)
+                .SetAttribute("InitiatorType", initiatorType)
+                .SetAttribute("InitiatorRole", initiatorRole)
                 .Build();
             
             _logger.LogInformation("After changing attributes request is {@Request}", request);

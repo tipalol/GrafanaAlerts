@@ -16,8 +16,9 @@
                 </TTID>
                 <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">
                     <creationDate>[DateTime]</creationDate>
-                    <initiatorEmployee>[Operator]</initiatorEmployee>
-                    <initiatorType>0</initiatorType>
+                    <initiatorEmployee>[InitiatorRole]</initiatorEmployee>
+                    <initiatorOrganizationalStructure>[InitiatorRole]</initiatorOrganizationalStructure>
+                    <initiatorType>[InitiatorType]</initiatorType>
                     <fullDescription>[AlertDescription]</fullDescription>
                     <troubleType>[AlertName]</troubleType>
                     <responsibleOrganizationalStructure>[Role]</responsibleOrganizationalStructure>

@@ -10,6 +10,8 @@ namespace GrafanaAlerts.Services.Implementations
         private const string RoleTag = "role";
         private const string KeTag = "ke";
         private const string PriorityTag = "priority";
+        private const string InitiatorTypeTag = "initiatorType";
+        private const string InitiatorRoleTag = "initiatorRole";
 
         private readonly ILogger<GrafanaAlertParseService> _logger;
 
@@ -36,10 +38,14 @@ namespace GrafanaAlerts.Services.Implementations
                 var role = tags[RoleTag];
                 var ke = tags[KeTag];
                 var priority = tags[PriorityTag];
+                var initiatorType = tags[InitiatorTypeTag];
+                var initiatorRole = tags[InitiatorRoleTag];
             
                 ThrowIfNull(role, nameof(RoleTag), request);
                 ThrowIfNull(ke, nameof(KeTag), request);
                 ThrowIfNull(priority, nameof(PriorityTag), request);
+                ThrowIfNull(initiatorType, nameof(InitiatorTypeTag), request);
+                ThrowIfNull(initiatorRole, nameof(InitiatorRoleTag), request);
 
                 ticket = new TroubleTicket
                 {
@@ -47,7 +53,9 @@ namespace GrafanaAlerts.Services.Implementations
                     Description = description,
                     Ke = ke,
                     Role = role,
-                    Priority = priority
+                    Priority = priority,
+                    InitiatorType = initiatorType,
+                    InitiatorRole = initiatorRole
                 };
                 
                 return ticket;
