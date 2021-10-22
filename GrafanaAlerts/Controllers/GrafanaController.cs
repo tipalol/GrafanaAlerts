@@ -188,6 +188,14 @@ namespace GrafanaAlerts.Controllers
             }
         }
 
+        [HttpPost("debug")]
+        public async Task<HttpStatusCode> LogRequest([FromBody] string request)
+        {
+            _logger.LogInformation("Got request: {@Request}", request);
+
+            return HttpStatusCode.OK;
+        }
+
         private static void StopWithError(Activity activity, string errorMessage, Exception exception)
         {
             activity?.SetStatus(ActivityStatusCode.Error);
