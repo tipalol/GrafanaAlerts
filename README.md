@@ -25,6 +25,6 @@ docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 * Ticket initiatorType - from Alert tag "initiatorType"
 * Ticket initatorRole - from Alert tag "iniatorRole"
 
-4. Settings located inside "appsettings.json" such as: TicketSystemHost, SoapTemplateRequestsLocation, JaegerAgentHost and etc.
+4. Settings located inside "AppData/Configs/config.json" such as: TicketSystemHost, SoapTemplateRequestsLocation and etc.
 
-5. Every alert in this channel will trigger dotnet method TriggerAlert which does parsing, complementing and registering of new trouble ticket in the system
+5. Every alert in this channel will trigger method TriggerAlert which does parsing, complementing and registering of new trouble ticket in the system
