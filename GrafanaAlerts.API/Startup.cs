@@ -1,10 +1,8 @@
 using GrafanaAlerts.API.Controllers;
-using GrafanaAlerts.API.Helpers;
 using GrafanaAlerts.API.Services;
 using GrafanaAlerts.API.Services.Implementations;
 using GrafanaAlerts.Core.Repositories;
 using GrafanaAlerts.Core.Services;
-using GrafanaAlerts.Infrastructure;
 using GrafanaAlerts.Infrastructure.Configuration;
 using GrafanaAlerts.Infrastructure.Repositories;
 using GrafanaAlerts.Infrastructure.Services;

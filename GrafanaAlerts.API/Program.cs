@@ -1,5 +1,4 @@
 using System;
-using GrafanaAlerts.API.Helpers;
 using GrafanaAlerts.Infrastructure.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
