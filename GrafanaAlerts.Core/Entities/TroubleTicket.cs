@@ -4,6 +4,7 @@ namespace GrafanaAlerts.Core.Entities
 {
     public class TroubleTicket
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Ke { get; set; }

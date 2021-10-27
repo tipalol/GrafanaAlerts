@@ -25,6 +25,8 @@ namespace GrafanaAlerts.API.Services.Implementations
         
         public TroubleTicket Parse(TriggerAlertRequest request)
         {
+            var id = request.RuleId;
+            
             var name = request.RuleName;
             ThrowIfNull(name, nameof(request.RuleName), request);
             
@@ -53,6 +55,7 @@ namespace GrafanaAlerts.API.Services.Implementations
 
                 var ticket = new TroubleTicket
                 {
+                    Id = id,
                     Name = name,
                     Description = description,
                     Ke = ke,

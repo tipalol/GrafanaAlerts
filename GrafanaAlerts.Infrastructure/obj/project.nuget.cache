@@ -1,15 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "y3ZDXmUOTbPhnCX0Rk0alhOd9fBQdejORi6vRwY9+3ksOb8j3XmrcKYDpxqk0TEjmMuQ7voGaBsyxDPXiKY+kg==",
+  "dgSpecHash": "VxCu9hfaSrG4VExRXathgiKzByoQtKN8xjLSUoSvDfFq96/cA3ZGdzV9XDiAkzTHqIZFFFNGbrTwzhAV8NbfKg==",
   "success": true,
   "projectFilePath": "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/GrafanaAlerts.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/Users/tipalol/.nuget/packages/dapper/2.0.90/dapper.2.0.90.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.dependencyinjection/5.0.0/microsoft.extensions.dependencyinjection.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/5.0.0/microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.logging/5.0.0/microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.logging.abstractions/5.0.0/microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
-    "/Users/tipalol/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+    "/Users/tipalol/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "/Users/tipalol/.nuget/packages/npgsql/5.0.10/npgsql.5.0.10.nupkg.sha512",
+    "/Users/tipalol/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],
   "logs": []
 }

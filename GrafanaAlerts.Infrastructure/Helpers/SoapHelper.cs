@@ -26,6 +26,23 @@ namespace GrafanaAlerts.Infrastructure.Helpers
 
             return result;
         }
+
+        public static string GetTroubleId(string ttResponse)
+        {
+            const string searchTag = "<ns2:internalTTID>";
+            var idTagPosition = ttResponse.LastIndexOf(searchTag, StringComparison.Ordinal) + searchTag.Length;
+            var id = "";
+
+            for (var i = idTagPosition; i < ttResponse.Length - searchTag.Length - 1; i++)
+            {
+                id += ttResponse[i];
+
+                if (ttResponse[i] == '<')
+                    break;
+            }
+
+            return id;
+        }
         
         private static HttpWebRequest CreateWebRequest(string url)
         {

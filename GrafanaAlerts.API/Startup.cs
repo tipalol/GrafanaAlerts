@@ -4,6 +4,7 @@ using GrafanaAlerts.API.Services.Implementations;
 using GrafanaAlerts.Core.Repositories;
 using GrafanaAlerts.Core.Services;
 using GrafanaAlerts.Infrastructure.Configuration;
+using GrafanaAlerts.Infrastructure.Integrations;
 using GrafanaAlerts.Infrastructure.Repositories;
 using GrafanaAlerts.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
@@ -65,6 +66,7 @@ namespace GrafanaAlerts.API
                 AdditionalTroubleInformationProviderService>();
             services.AddSingleton<ITroublesRepository, TroublesRepository>();
             services.AddSingleton<IRequestRepository, RequestsRepository>();
+            services.AddSingleton<IRemedyVisitor, RemedyVisitor>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
