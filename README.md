@@ -25,7 +25,7 @@ docker run -d -p 8080:80 --name GrafanaAlerts aspnetapp
 * Ticket priority - from Alert tag "priority"
 * Ticket ke - from Alert tag "ke"
 * Ticket initiatorType - from Alert tag "initiatorType"
-* Ticket initatorRole - from Alert tag "iniatorRole"
+* Ticket initiatorRole - from Alert tag "initiatorRole"
 
 4. Settings located inside "AppData/Configs/config.json" such as: TicketSystemHost, SoapTemplateRequestsLocation and etc.
 
