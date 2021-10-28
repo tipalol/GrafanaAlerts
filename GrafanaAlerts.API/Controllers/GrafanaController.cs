@@ -54,6 +54,15 @@ namespace GrafanaAlerts.API.Controllers
             TroubleTicket ticket;
             TroubleTicket completeTicket;
 
+            if (IsOkMessage(request))
+            {
+                _logger.LogInformation("Got OK message from Grafana about {AlertId}. Closing ticket..", request.RuleId);
+                await _ticketRepository.Close(request.RuleId);
+                _logger.LogInformation("Ticket closed!");
+
+                return HttpStatusCode.OK;
+            }
+
             var activityName = $"{nameof(IGrafanaAlertParseService)} is parsing alert";
             using (var activity = ActivitySource.StartActivity(activityName, ActivityKind.Consumer))
             {
@@ -212,5 +221,8 @@ namespace GrafanaAlerts.API.Controllers
             activity?.Parent?.RecordException(exception);
             activity?.Parent?.Stop();
         }
+
+        private static bool IsOkMessage(TriggerAlertRequest request)
+            => request.State.ToLower() == "ok";
     }
 }

@@ -5,6 +5,7 @@ using GrafanaAlerts.Core.Enums;
 using GrafanaAlerts.Core.Repositories;
 using GrafanaAlerts.Infrastructure.Builders;
 using GrafanaAlerts.Infrastructure.Configuration;
+using GrafanaAlerts.Infrastructure.DTO;
 using GrafanaAlerts.Infrastructure.Helpers;
 using Microsoft.Extensions.Logging;
 
@@ -31,6 +32,7 @@ namespace GrafanaAlerts.Infrastructure.Integrations
         private const InitiatorType DefaultInitiatorType = InitiatorType.Company;
 
         private const string CreateTroubleTicketRequest = "CreateTTRequest";
+        private const string SolveTroubleTicketRequest = "SolveTTRequest";
         
         private readonly bool _isCustomAllowed;
         private readonly string _troubleTicketSystemHost;
@@ -47,7 +49,7 @@ namespace GrafanaAlerts.Infrastructure.Integrations
             _logger = logger;
         }
 
-        public async Task<string> AcceptTroubleTicket(TroubleTicket ticket)
+        public async Task<string> Accept(TroubleTicket ticket)
         {
             _logger.LogInformation("Loading CreateTTRequest.xml...");
             var rawRequest = _requestRepository.Get(CreateTroubleTicketRequest);
@@ -86,6 +88,31 @@ namespace GrafanaAlerts.Infrastructure.Integrations
             _logger.LogInformation("Trouble id is {Id}", registeredId);
 
             return registeredId;
+        }
+
+        public async Task<string> Close(TroubleTicketDTO ticket)
+        {
+            _logger.LogInformation("Loading {Request}.xml...", SolveTroubleTicketRequest);
+            var rawRequest = _requestRepository.Get(SolveTroubleTicketRequest);
+
+            var id = ticket.TroubleId;
+            var guid = Guid.NewGuid().ToString();
+            var date = DateTime.Now.ToString("O");
+
+            var request = new RequestBuilder(rawRequest)
+                .SetAttribute(IdTag, id)
+                .SetAttribute(GuidTag, guid)
+                .SetAttribute(DatetimeTag, date)
+                .Build();
+            
+            _logger.LogInformation("Request is {@Request}", request);
+            _logger.LogInformation("Sending soap request to the Ticket system..");
+            
+            var response = await SoapHelper.SendRequest(_troubleTicketSystemHost, request);
+            
+            _logger.LogInformation("Got response from Ticket system: @{Response}", response);
+
+            return response;
         }
     }
 }

@@ -38,10 +38,26 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             }
 
             // Registering ticket in trouble system
-            var troubleId = await _remedy.AcceptTroubleTicket(ticket);
+            var troubleId = await _remedy.Accept(ticket);
 
             // Record ticket data in database
             await RecordTicket(ticket, troubleId);
+
+            return HttpStatusCode.OK;
+        }
+
+        public async Task<HttpStatusCode> Close(int ticketId)
+        {
+            // Check if the ticket has been already registered
+            if (TicketExists(ticketId) == false)
+            {
+                _logger.LogInformation(
+                    "There is no such a ticket in the database! Anyway, trying to close ticket..");
+                // return HttpStatusCode.BadRequest;
+            }
+
+            var ticket = Get(ticketId);
+            var result = await _remedy.Close(ticket);
 
             return HttpStatusCode.OK;
         }
@@ -65,9 +81,14 @@ namespace GrafanaAlerts.Infrastructure.Repositories
 
         private bool TicketExists(TroubleTicket ticket)
         {
+            return TicketExists(ticket.Id);
+        }
+
+        private bool TicketExists(int ticketId)
+        {
             using var connection = OpenConnection(_connectionString);
 
-            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticket.Id);
+            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticketId);
 
             var troubleTickets = recorded as TroubleTicketDTO[] ?? recorded.ToArray();
             
@@ -75,6 +96,20 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 return false;
             
             return troubleTickets[0].ClosedDate != DateTime.MinValue;
+        }
+        
+        private TroubleTicketDTO Get(int ticketId)
+        {
+            using var connection = OpenConnection(_connectionString);
+
+            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticketId);
+
+            var troubleTickets = recorded as TroubleTicketDTO[] ?? recorded.ToArray();
+
+            if (troubleTickets.Length == 0)
+                throw new ArgumentException("There is no ticket with specified name", nameof(ticketId));
+
+            return troubleTickets[0];
         }
 
         private static IDbConnection OpenConnection(string connectionString)

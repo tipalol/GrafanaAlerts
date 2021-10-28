@@ -35,10 +35,10 @@ namespace GrafanaAlerts.Infrastructure.Helpers
 
             for (var i = idTagPosition; i < ttResponse.Length - searchTag.Length - 1; i++)
             {
-                id += ttResponse[i];
-
                 if (ttResponse[i] == '<')
                     break;
+                
+                id += ttResponse[i];
             }
 
             return id;

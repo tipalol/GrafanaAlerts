@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Header/>
+    <soap:Body>
+        <solveTT xmlns="urn:gf-trouble-ticket-management">
+            <request xmlns="">
+                <activity xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <operationDate>[DateTime]</operationDate>
+                    <systemID>2</systemID>
+                    <operationId>[GUID]</operationId>
+                    <comment>Авария не активна</comment>
+                    <operator>BeeInside</operator>
+                </activity>
+                <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <systemID>2</systemID>
+                    <internalTTID>[ID]</internalTTID>
+                </TTID>
+                <ownerSystem xmlns="urn:gf-trouble-ticket-management:xsd">0</ownerSystem>
+                <solutionState xmlns="urn:gf-trouble-ticket-management:xsd">TCONT</solutionState>
+                <serviceState xmlns="urn:gf-trouble-ticket-management:xsd">SAV</serviceState>
+                <solutionDate xmlns="urn:gf-trouble-ticket-management:xsd">[DateTime]</solutionDate>
+                <removalDate xmlns="urn:gf-trouble-ticket-management:xsd">[DateTime]</removalDate>
+                <removalActions xmlns="urn:gf-trouble-ticket-management:xsd">Авария не активна</removalActions>
+                <isSolved xmlns="urn:gf-trouble-ticket-management:xsd">true</isSolved>
+            </request>
+        </solveTT>
+    </soap:Body>
+</soap:Envelope>
