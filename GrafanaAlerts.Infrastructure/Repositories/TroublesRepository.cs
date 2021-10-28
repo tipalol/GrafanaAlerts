@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using GrafanaAlerts.Core.Entities;
@@ -30,32 +31,29 @@ namespace GrafanaAlerts.Infrastructure.Repositories
         public async Task<HttpStatusCode> Add(TroubleTicket ticket)
         {
             // Check if the ticket has been already registered
-            /*
-            var ticketExists = await TicketExists(ticket);
-            if (ticketExists)
-                return HttpStatusCode.BadRequest;*/
-            
+            if (TicketExists(ticket))
+            {
+                _logger.LogInformation("This ticket has been already registered and it is not closed!");
+                return HttpStatusCode.BadRequest;
+            }
+
             // Registering ticket in trouble system
             var troubleId = await _remedy.AcceptTroubleTicket(ticket);
 
             // Record ticket data in database
-            // await RecordTicket(ticket, troubleId);
+            await RecordTicket(ticket, troubleId);
 
             return HttpStatusCode.OK;
         }
-        
-        public void Dispose()
-        {
-            
-        }
-        
+
         private async Task RecordTicket(TroubleTicket ticket, string troubleId)
         {
             var ticketDto = new TroubleTicketDTO()
             {
                 AlertId = ticket.Id,
                 TroubleId = troubleId,
-                CreationDate = DateTime.Now
+                CreationDate = DateTime.Now,
+                ClosedDate = DateTime.MinValue
             };
 
             using var connection = OpenConnection(_connectionString);
@@ -65,13 +63,18 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             await connection.ExecuteAsync(query, ticketDto);
         }
 
-        private async Task<bool> TicketExists(TroubleTicket ticket)
+        private bool TicketExists(TroubleTicket ticket)
         {
             using var connection = OpenConnection(_connectionString);
 
-            const string query = "select * from Troubles where ";
+            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticket.Id);
+
+            var troubleTickets = recorded as TroubleTicketDTO[] ?? recorded.ToArray();
             
-            return true;
+            if (troubleTickets.Length == 0)
+                return false;
+            
+            return troubleTickets[0].ClosedDate != DateTime.MinValue;
         }
 
         private static IDbConnection OpenConnection(string connectionString)
