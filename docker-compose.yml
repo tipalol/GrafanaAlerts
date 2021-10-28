@@ -1,0 +1,23 @@
+version: '3.1'
+
+volumes:
+  pg_data:
+
+services:
+  web_api:
+    build: .
+    ports:
+      - "8000:80"
+    depends_on:
+      - pg_db
+  pg_db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=dbpassword
+      - POSTGRES_USER=dbuser
+      - POSTGRES_DB=db_troubles
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432

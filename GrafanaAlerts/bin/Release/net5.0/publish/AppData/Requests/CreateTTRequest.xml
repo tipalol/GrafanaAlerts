@@ -1,0 +1,48 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Header/>
+    <soap:Body>
+        <CreateTT xmlns="urn:gf-trouble-ticket-management">
+            <request xmlns="">
+                <activity xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <operationDate>[DateTime]</operationDate>
+                    <systemID>2</systemID>
+                    <operationId>[GUID]</operationId>
+                    <comment>TT from grafana</comment>
+                    <operator>[Operator]</operator>
+                </activity>
+                <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <systemID>2</systemID>
+                    <internalTTID>[ID]</internalTTID>
+                </TTID>
+                <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <creationDate>[DateTime]</creationDate>
+                    <initiatorEmployee>[InitiatorRole]</initiatorEmployee>
+                    <initiatorOrganizationalStructure>[InitiatorRole]</initiatorOrganizationalStructure>
+                    <initiatorType>[InitiatorType]</initiatorType>
+                    <fullDescription>[AlertDescription]</fullDescription>
+                    <troubleType>[AlertName]</troubleType>
+                    <responsibleOrganizationalStructure>[Role]</responsibleOrganizationalStructure>
+                    <priority>[Priority]</priority>
+                    <ownerSystem>0</ownerSystem>
+                    <registrationSystem>0</registrationSystem>
+                    <solutionState>TOPEN</solutionState>
+                    <serviceState>SNAV</serviceState>
+                    <responsibilityZone_Active>BEE</responsibilityZone_Active>
+                    <clientType>ITInfMon</clientType>
+                    <dependenceType>0</dependenceType>
+                    <branch>FIL000000000001</branch>
+                    <requestType>0</requestType>
+                    <occurrenceTime>[DateTime]</occurrenceTime>
+                    <externalSystemInfluence>0</externalSystemInfluence>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                </generalTTInfo>
+                <monitoringTT xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <objectType>EQUIP</objectType>
+                    <degradationLevel>2</degradationLevel>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                    <configurationItem>[KE]</configurationItem>
+                </monitoringTT>
+            </request>
+        </CreateTT>
+    </soap:Body>
+</soap:Envelope>
