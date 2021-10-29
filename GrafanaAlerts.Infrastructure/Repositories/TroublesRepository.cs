@@ -48,16 +48,25 @@ namespace GrafanaAlerts.Infrastructure.Repositories
 
         public async Task<HttpStatusCode> Close(int ticketId)
         {
-            // Check if the ticket has been already registered
+            TroubleTicketDTO ticket;
+            
+            // Check if there is information about this ticket in database
             if (TicketExists(ticketId) == false)
             {
-                _logger.LogInformation(
-                    "There is no such a ticket in the database! Anyway, trying to close ticket..");
-                // return HttpStatusCode.BadRequest;
+                _logger.LogError(
+                    "There is no such a ticket in the database!");
+                
+                return HttpStatusCode.BadRequest;
             }
 
-            var ticket = Get(ticketId);
+            // Get ticket DTO from database
+            ticket = Get(ticketId);
+            
+            // Send OK message to ticket system
             var result = await _remedy.Close(ticket);
+
+            // Update ticket closed date
+            await Update(ticket);
 
             return HttpStatusCode.OK;
         }
@@ -76,7 +85,9 @@ namespace GrafanaAlerts.Infrastructure.Repositories
 
             const string query = "insert into Troubles (AlertId, TroubleId, CreationDate, ClosedDate) values (@AlertId, @TroubleId, @CreationDate, @ClosedDate)";
 
-            await connection.ExecuteAsync(query, ticketDto);
+            var affected = await connection.ExecuteAsync(query, ticketDto);
+            
+            _logger.LogInformation("Ticket added. {RowsAffected} rows affected", affected);
         }
 
         private bool TicketExists(TroubleTicket ticket)
@@ -96,6 +107,17 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 return false;
             
             return troubleTickets[0].ClosedDate != DateTime.MinValue;
+        }
+
+        private async Task Update(TroubleTicketDTO ticket)
+        {
+            using var connection = OpenConnection(_connectionString);
+
+            const string query = "update Troubles set ClosedDate = @ClosedDate where TroubleId = @TroubleId";
+
+            var affected = await connection.ExecuteAsync(query, ticket);
+            
+            _logger.LogInformation("Ticket updated, {RowsAffected} rows affected", affected);
         }
         
         private TroubleTicketDTO Get(int ticketId)
