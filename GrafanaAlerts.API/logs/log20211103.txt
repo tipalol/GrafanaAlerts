@@ -1,0 +1,321 @@
+2021-11-03 11:13:53.277 +05:00 [INF] Starting web host
+2021-11-03 11:13:54.550 +05:00 [INF] Now listening on: https://localhost:5001
+2021-11-03 11:13:54.556 +05:00 [INF] Now listening on: http://localhost:5000
+2021-11-03 11:13:54.558 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-03 11:13:54.558 +05:00 [INF] Hosting environment: Development
+2021-11-03 11:13:54.558 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API
+2021-11-03 11:13:55.630 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger - -
+2021-11-03 11:13:55.735 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger - - - 301 0 - 110.9042ms
+2021-11-03 11:13:55.782 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-11-03 11:13:55.957 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 175.0303ms
+2021-11-03 11:13:55.990 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui.css - -
+2021-11-03 11:13:56.083 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-bundle.js - -
+2021-11-03 11:13:56.085 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js - -
+2021-11-03 11:13:56.159 +05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2021-11-03 11:13:56.159 +05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2021-11-03 11:13:56.159 +05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2021-11-03 11:13:56.171 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-bundle.js - - - 200 986342 application/javascript 82.4234ms
+2021-11-03 11:13:56.172 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui.css - - - 200 142933 text/css 175.0835ms
+2021-11-03 11:13:56.172 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js - - - 200 311804 application/javascript 79.6624ms
+2021-11-03 11:13:56.315 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-11-03 11:13:56.410 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/favicon-32x32.png - -
+2021-11-03 11:13:56.420 +05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2021-11-03 11:13:56.421 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/favicon-32x32.png - - - 200 628 image/png 10.7886ms
+2021-11-03 11:13:56.436 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon-precomposed.png - -
+2021-11-03 11:13:56.461 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/favicon-16x16.png - -
+2021-11-03 11:13:56.464 +05:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2021-11-03 11:13:56.465 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/favicon-16x16.png - - - 200 665 image/png 3.0950ms
+2021-11-03 11:13:56.577 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon-precomposed.png - - - 404 0 - 140.2985ms
+2021-11-03 11:13:56.591 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2021-11-03 11:13:56.593 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 404 0 - 2.1272ms
+2021-11-03 11:13:56.676 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 360.6318ms
+2021-11-03 11:14:11.426 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/troubles application/json 140
+2021-11-03 11:14:11.470 +05:00 [INF] Executing endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:14:11.557 +05:00 [INF] Route matched with {action = "CreateTrouble", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Net.HttpStatusCode] CreateTrouble(GrafanaAlerts.Core.Entities.TroubleTicket) on controller GrafanaAlerts.API.Controllers.GrafanaController (GrafanaAlerts.API).
+2021-11-03 11:14:11.626 +05:00 [INF] Executing action method GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) - Validation state: "Valid"
+2021-11-03 11:14:11.641 +05:00 [INF] Got new custom trouble request: {"Id":0,"Name":"string","Description":"string","Ke":"string","Role":"string","Priority":"string","InitiatorType":"Person","InitiatorRole":"string","$type":"TroubleTicket"}. Registering..
+2021-11-03 11:14:12.493 +05:00 [INF] Executed action GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) in 927.5193ms
+2021-11-03 11:14:12.499 +05:00 [INF] Executed endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:14:12.504 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42P01: relation "troubles" does not exist
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1055
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1083
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 725
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.TicketExists(Int32 ticketId) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 102
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.TicketExists(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 95
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.Add(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 34
+   at GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API/Controllers/GrafanaController.cs:line 162
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "troubles" does not exist
+    Position: 15
+    File: parse_relation.c
+    Line: 1381
+    Routine: parserOpenTable
+2021-11-03 11:14:12.659 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/troubles application/json 140 - 500 - text/plain 1236.8195ms
+2021-11-03 11:16:57.492 +05:00 [INF] Application is shutting down...
+2021-11-03 11:24:11.678 +05:00 [INF] Starting web host
+2021-11-03 11:24:12.791 +05:00 [INF] Now listening on: https://localhost:5001
+2021-11-03 11:24:12.798 +05:00 [INF] Now listening on: http://localhost:5000
+2021-11-03 11:24:12.800 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-03 11:24:12.800 +05:00 [INF] Hosting environment: Development
+2021-11-03 11:24:12.801 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API
+2021-11-03 11:24:13.806 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-11-03 11:24:13.991 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 190.7285ms
+2021-11-03 11:24:14.133 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-11-03 11:24:14.433 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 300.1958ms
+2021-11-03 11:25:00.238 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/troubles application/json 191
+2021-11-03 11:25:00.355 +05:00 [INF] Executing endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:25:00.432 +05:00 [INF] Route matched with {action = "CreateTrouble", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Net.HttpStatusCode] CreateTrouble(GrafanaAlerts.Core.Entities.TroubleTicket) on controller GrafanaAlerts.API.Controllers.GrafanaController (GrafanaAlerts.API).
+2021-11-03 11:25:00.506 +05:00 [INF] Executing action method GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) - Validation state: "Valid"
+2021-11-03 11:25:00.522 +05:00 [INF] Got new custom trouble request: {"Id":0,"Name":"Наруто","Description":"Сериал","Ke":"Нетфликс","Role":"Юра","Priority":"0000000000000001","InitiatorType":"Person","InitiatorRole":"0000000000000000246325635","$type":"TroubleTicket"}. Registering..
+2021-11-03 11:25:01.412 +05:00 [INF] Executed action GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) in 970.9432ms
+2021-11-03 11:25:01.416 +05:00 [INF] Executed endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:25:01.420 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+Npgsql.PostgresException (0x80004005): 42703: column "id" does not exist
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1055
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1083
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 725
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.TicketExists(Int32 ticketId) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 102
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.TicketExists(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 95
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.Add(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 34
+   at GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API/Controllers/GrafanaController.cs:line 162
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42703
+    MessageText: column "id" does not exist
+    Position: 41
+    File: parse_relation.c
+    Line: 3589
+    Routine: errorMissingColumn
+2021-11-03 11:25:01.550 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/troubles application/json 191 - 500 - text/plain 1317.7855ms
+2021-11-03 11:26:05.693 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/troubles application/json 191
+2021-11-03 11:26:05.714 +05:00 [INF] Executing endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:26:05.723 +05:00 [INF] Route matched with {action = "CreateTrouble", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Net.HttpStatusCode] CreateTrouble(GrafanaAlerts.Core.Entities.TroubleTicket) on controller GrafanaAlerts.API.Controllers.GrafanaController (GrafanaAlerts.API).
+2021-11-03 11:26:05.734 +05:00 [INF] Executing action method GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) - Validation state: "Valid"
+2021-11-03 11:26:05.737 +05:00 [INF] Got new custom trouble request: {"Id":0,"Name":"Наруто","Description":"Сериал","Ke":"Нетфликс","Role":"Юра","Priority":"0000000000000001","InitiatorType":"Person","InitiatorRole":"0000000000000000246325635","$type":"TroubleTicket"}. Registering..
+2021-11-03 11:26:05.816 +05:00 [INF] Loading CreateTTRequest.xml...
+2021-11-03 11:26:05.828 +05:00 [INF] There is 1 tickets in system
+2021-11-03 11:26:05.836 +05:00 [INF] Request is <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Header/>
+    <soap:Body>
+        <CreateTT xmlns="urn:gf-trouble-ticket-management">
+            <request xmlns="">
+                <activity xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <operationDate>2021-11-03T11:26:05.8353370+05:00</operationDate>
+                    <systemID>2</systemID>
+                    <operationId>b1b3154c-448e-44d5-8397-564bd665bea3</operationId>
+                    <comment>TT from grafana</comment>
+                    <operator>BeeInside</operator>
+                </activity>
+                <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <systemID>2</systemID>
+                    <internalTTID>1</internalTTID>
+                </TTID>
+                <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <creationDate>2021-11-03T11:26:05.8353370+05:00</creationDate>
+                    <initiatorEmployee>BeeInside</initiatorEmployee>
+                    <initiatorOrganizationalStructure>BeeInside</initiatorOrganizationalStructure>
+                    <initiatorType>0</initiatorType>
+                    <fullDescription>Сериал</fullDescription>
+                    <troubleType>Наруто</troubleType>
+                    <responsibleOrganizationalStructure>Юра</responsibleOrganizationalStructure>
+                    <priority>0000000000000001</priority>
+                    <ownerSystem>0</ownerSystem>
+                    <registrationSystem>0</registrationSystem>
+                    <solutionState>TOPEN</solutionState>
+                    <serviceState>SNAV</serviceState>
+                    <responsibilityZone_Active>BEE</responsibilityZone_Active>
+                    <clientType>ITInfMon</clientType>
+                    <dependenceType>0</dependenceType>
+                    <branch>FIL000000000001</branch>
+                    <requestType>0</requestType>
+                    <occurrenceTime>2021-11-03T11:26:05.8353370+05:00</occurrenceTime>
+                    <externalSystemInfluence>0</externalSystemInfluence>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                </generalTTInfo>
+                <monitoringTT xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <objectType>EQUIP</objectType>
+                    <degradationLevel>2</degradationLevel>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                    <configurationItem>Нетфликс</configurationItem>
+                </monitoringTT>
+            </request>
+        </CreateTT>
+    </soap:Body>
+</soap:Envelope>
+2021-11-03 11:26:05.837 +05:00 [INF] Sending soap request to the Ticket system..
+2021-11-03 11:26:06.068 +05:00 [INF] Executed action GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) in 342.9407ms
+2021-11-03 11:26:06.070 +05:00 [INF] Executed endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:26:06.071 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at System.Net.WebRequest.Create(String requestUriString)
+   at GrafanaAlerts.Infrastructure.Helpers.SoapHelper.CreateWebRequest(String url) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Helpers/SoapHelper.cs:line 49
+   at GrafanaAlerts.Infrastructure.Helpers.SoapHelper.SendRequest(String url, String soap) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Helpers/SoapHelper.cs:line 13
+   at GrafanaAlerts.Infrastructure.Integrations.RemedyVisitor.Accept(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Integrations/RemedyVisitor.cs:line 82
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.Add(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 41
+   at GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API/Controllers/GrafanaController.cs:line 162
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-03 11:26:06.085 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/troubles application/json 191 - 500 - text/plain 393.7662ms
+2021-11-03 11:27:34.015 +05:00 [INF] Application is shutting down...
+2021-11-03 11:31:26.748 +05:00 [INF] Starting web host
+2021-11-03 11:31:27.914 +05:00 [INF] Now listening on: https://localhost:5001
+2021-11-03 11:31:27.920 +05:00 [INF] Now listening on: http://localhost:5000
+2021-11-03 11:31:27.922 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-03 11:31:27.923 +05:00 [INF] Hosting environment: Development
+2021-11-03 11:31:27.923 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API
+2021-11-03 11:31:28.941 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html - -
+2021-11-03 11:31:29.208 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;charset=utf-8 282.5435ms
+2021-11-03 11:31:29.349 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - -
+2021-11-03 11:31:29.610 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 260.4374ms
+2021-11-03 11:32:16.996 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/troubles application/json 140
+2021-11-03 11:32:17.105 +05:00 [INF] Executing endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:32:17.196 +05:00 [INF] Route matched with {action = "CreateTrouble", controller = "Grafana"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Net.HttpStatusCode] CreateTrouble(GrafanaAlerts.Core.Entities.TroubleTicket) on controller GrafanaAlerts.API.Controllers.GrafanaController (GrafanaAlerts.API).
+2021-11-03 11:32:18.200 +05:00 [INF] Executing action method GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) - Validation state: "Valid"
+2021-11-03 11:32:18.217 +05:00 [INF] Got new custom trouble request: {"Id":0,"Name":"string","Description":"string","Ke":"string","Role":"string","Priority":"string","InitiatorType":"Person","InitiatorRole":"string","$type":"TroubleTicket"}. Registering..
+2021-11-03 11:32:18.304 +05:00 [INF] Loading CreateTTRequest.xml...
+2021-11-03 11:32:18.308 +05:00 [INF] There is 1 tickets in system
+2021-11-03 11:32:18.310 +05:00 [INF] Request is <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Header/>
+    <soap:Body>
+        <CreateTT xmlns="urn:gf-trouble-ticket-management">
+            <request xmlns="">
+                <activity xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <operationDate>2021-11-03T11:32:18.3094850+05:00</operationDate>
+                    <systemID>2</systemID>
+                    <operationId>62e41bdb-d02b-499c-9af2-4d7ffc7b2938</operationId>
+                    <comment>TT from grafana</comment>
+                    <operator>BeeInside</operator>
+                </activity>
+                <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <systemID>2</systemID>
+                    <internalTTID>1</internalTTID>
+                </TTID>
+                <generalTTInfo xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <creationDate>2021-11-03T11:32:18.3094850+05:00</creationDate>
+                    <initiatorEmployee>BeeInside</initiatorEmployee>
+                    <initiatorOrganizationalStructure>BeeInside</initiatorOrganizationalStructure>
+                    <initiatorType>0</initiatorType>
+                    <fullDescription>string</fullDescription>
+                    <troubleType>string</troubleType>
+                    <responsibleOrganizationalStructure>string</responsibleOrganizationalStructure>
+                    <priority>string</priority>
+                    <ownerSystem>0</ownerSystem>
+                    <registrationSystem>0</registrationSystem>
+                    <solutionState>TOPEN</solutionState>
+                    <serviceState>SNAV</serviceState>
+                    <responsibilityZone_Active>BEE</responsibilityZone_Active>
+                    <clientType>ITInfMon</clientType>
+                    <dependenceType>0</dependenceType>
+                    <branch>FIL000000000001</branch>
+                    <requestType>0</requestType>
+                    <occurrenceTime>2021-11-03T11:32:18.3094850+05:00</occurrenceTime>
+                    <externalSystemInfluence>0</externalSystemInfluence>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                </generalTTInfo>
+                <monitoringTT xmlns="urn:gf-trouble-ticket-management:xsd">
+                    <objectType>EQUIP</objectType>
+                    <degradationLevel>2</degradationLevel>
+                    <initiatorMonitoringSystem>Monitoring</initiatorMonitoringSystem>
+                    <configurationItem>string</configurationItem>
+                </monitoringTT>
+            </request>
+        </CreateTT>
+    </soap:Body>
+</soap:Envelope>
+2021-11-03 11:32:18.311 +05:00 [INF] Sending soap request to the Ticket system..
+2021-11-03 11:32:18.334 +05:00 [INF] Executed action GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API) in 1131.3362ms
+2021-11-03 11:32:18.338 +05:00 [INF] Executed endpoint 'GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble (GrafanaAlerts.API)'
+2021-11-03 11:32:18.343 +05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.UriFormatException: Invalid URI: The format of the URI could not be determined.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at System.Net.WebRequest.Create(String requestUriString)
+   at GrafanaAlerts.Infrastructure.Helpers.SoapHelper.CreateWebRequest(String url) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Helpers/SoapHelper.cs:line 49
+   at GrafanaAlerts.Infrastructure.Helpers.SoapHelper.SendRequest(String url, String soap) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Helpers/SoapHelper.cs:line 13
+   at GrafanaAlerts.Infrastructure.Integrations.RemedyVisitor.Accept(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Integrations/RemedyVisitor.cs:line 82
+   at GrafanaAlerts.Infrastructure.Repositories.TroublesRepository.Add(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/Repositories/TroublesRepository.cs:line 43
+   at GrafanaAlerts.API.Controllers.GrafanaController.CreateTrouble(TroubleTicket ticket) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.API/Controllers/GrafanaController.cs:line 162
+   at lambda_method7(Closure , Object )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-03 11:32:18.422 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/troubles application/json 140 - 500 - text/plain 1430.6508ms

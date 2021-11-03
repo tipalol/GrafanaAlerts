@@ -1,0 +1,31 @@
+.page[b-8i4jh4hvpp] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-8i4jh4hvpp] {
+    flex: 1;
+}
+
+.sidebar[b-8i4jh4hvpp] {
+    background-color: #323332;
+}
+
+@media (min-width: 641px) {
+    .page[b-8i4jh4hvpp] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-8i4jh4hvpp] {
+        width: 80px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div[b-8i4jh4hvpp] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}

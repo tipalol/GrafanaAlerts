@@ -1,0 +1,36 @@
+﻿<div class="top-row navbar navbar-dark" style="padding-left: 0.8rem !important;">
+    <a class="navbar-brand" href="">
+        <div style="background-image: url('img/morty-icon-16.png'); background-position: center; background-size: cover; height: 60px; width: 60px;"></div>
+    </a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3 menu-item">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span>
+            </NavLink>
+        </li>
+         <li class="nav-item px-3 menu-item">
+            <NavLink class="nav-link" href="http://inside.beeline.ru/">
+                <!--<span class="oi oi-list-rich" aria-hidden="true"></span> </!-->
+                <div style="width: 50px; height: 50px; margin-top:  30px; background-size: 100%; background-repeat: no-repeat; background-image: url('img/grafana.png')"></div>
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+}

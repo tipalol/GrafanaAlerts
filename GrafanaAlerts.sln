@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafanaAlerts.Infrastructur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafanaAlerts.Core", "GrafanaAlerts.Core\GrafanaAlerts.Core.csproj", "{29F0269B-FF94-47A7-AA9D-4B4D20B78516}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafanaAlerts.MnemonicForm", "GrafanaAlerts.MnemonicForm\GrafanaAlerts.MnemonicForm.csproj", "{C404D56F-0F3B-40B7-A284-30A1D3C84E8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{29F0269B-FF94-47A7-AA9D-4B4D20B78516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F0269B-FF94-47A7-AA9D-4B4D20B78516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F0269B-FF94-47A7-AA9D-4B4D20B78516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C404D56F-0F3B-40B7-A284-30A1D3C84E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C404D56F-0F3B-40B7-A284-30A1D3C84E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C404D56F-0F3B-40B7-A284-30A1D3C84E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C404D56F-0F3B-40B7-A284-30A1D3C84E8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

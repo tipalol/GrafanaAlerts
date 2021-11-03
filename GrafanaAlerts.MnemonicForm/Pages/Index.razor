@@ -1,0 +1,50 @@
+@page "/"
+
+<div class="container">
+    <h1>Костыль</h1>
+    
+    На этой странице вы можете.. ничего
+    
+    <br/>
+    
+    <select class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+        <option data-tokens="ketchup mustard" style="background-color: #3C3C3C !important;">Hot Dog, Fries and a Soda</option>
+        <option data-tokens="mustard" style="background-color: #3C3C3C !important;">Burger, Shake and a Smile</option>
+        <option data-tokens="frosting" style="background-color: #3C3C3C !important;">Sugar, Spice and all things nice</option>
+    </select>
+
+    @if (!string.IsNullOrEmpty(SelectedValue))
+    {
+        <div>
+            <p class="text-success">
+                Selected dropdown value: @SelectedValue
+            </p>
+        </div>
+    }
+</div>
+
+
+@code {
+    // inject jsruntime to call javascript code
+    [Inject] public IJSRuntime JSRuntime { get; set; }
+
+    // hold the callback selected value
+    public string SelectedValue { get; set; }
+
+    // call the javascript method to init the select picker
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) // only needs to be called once per page render
+        {
+            await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", ".selectpicker");
+        }
+    }
+
+    // method which will be triggered by javascript, need to pass the method name 
+    [JSInvokable]
+    public void OnSelectedValue(string val)
+    {
+        SelectedValue = val;
+        StateHasChanged();
+    }
+}

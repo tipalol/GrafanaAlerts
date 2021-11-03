@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/tipalol/.dotnet/store/|arch|/|tfm|",
+      "/Users/tipalol/.nuget/packages"
+    ]
+  }
+}

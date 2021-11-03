@@ -26,6 +26,8 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             _connectionString = ConfigProvider.Load().App.DatabaseConnectionString;
             _logger = logger;
             _remedy = remedy;
+
+            InsureTroublesTableExists();
         }
 
         public async Task<HttpStatusCode> Add(TroubleTicket ticket)
@@ -140,6 +142,28 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             connection.Open();
 
             return connection;
+        }
+
+        private void InsureTroublesTableExists()
+        {
+            try
+            {
+                using var connection = OpenConnection(_connectionString);
+
+                const string query = @"create table Troubles (
+                    id int primary key not null,
+                    AlertId int not null,
+                    TroubleId text not null,
+                    CreationDate date not null,
+                    ClosedDate date
+                )";
+
+                connection.Execute(query);
+            }
+            catch (Exception e)
+            {
+                return;
+            }
         }
     }
 }
