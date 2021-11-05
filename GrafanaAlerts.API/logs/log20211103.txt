@@ -319,3 +319,4 @@ System.UriFormatException: Invalid URI: The format of the URI could not be deter
    at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
 2021-11-03 11:32:18.422 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/api/troubles application/json 140 - 500 - text/plain 1430.6508ms
+2021-11-03 11:49:01.636 +05:00 [INF] Application is shutting down...

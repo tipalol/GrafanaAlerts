@@ -151,7 +151,7 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 using var connection = OpenConnection(_connectionString);
 
                 const string query = @"create table Troubles (
-                    id int primary key not null,
+                    id serial primary key not null,
                     AlertId int not null,
                     TroubleId text not null,
                     CreationDate date not null,
