@@ -5,10 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["GrafanaAlerts.MnemonicForm/GrafanaAlerts.MnemonicForm.csproj", "GrafanaAlerts.MnemonicForm/"]
-RUN dotnet restore "GrafanaAlerts.MnemonicForm/GrafanaAlerts.MnemonicForm.csproj"
+COPY ["GrafanaAlerts.MnemonicForm.csproj", "."]
+RUN dotnet restore "GrafanaAlerts.MnemonicForm.csproj"
 COPY . .
-WORKDIR "/src/GrafanaAlerts.MnemonicForm"
+WORKDIR "/src"
 RUN dotnet build "GrafanaAlerts.MnemonicForm.csproj" -c Release -o /app/build
 
 FROM build AS publish

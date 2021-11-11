@@ -65,6 +65,7 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             _logger.LogInformation("Getting ticket from DB");
             // Get ticket DTO from database
             ticket = Get(ticketId);
+            ticket.ClosedDate = DateTime.Now;
             
             _logger.LogInformation("Send OK messsage to TS");
             // Send OK message to ticket system
