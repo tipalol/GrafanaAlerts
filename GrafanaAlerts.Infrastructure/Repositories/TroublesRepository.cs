@@ -62,11 +62,14 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 return HttpStatusCode.BadRequest;
             }
 
+            _logger.LogInformation("Getting ticket from DB");
             // Get ticket DTO from database
             ticket = Get(ticketId);
             
+            _logger.LogInformation("Send OK messsage to TS");
             // Send OK message to ticket system
             var result = await _remedy.Close(ticket);
+            _logger.LogInformation("Got response: {Response}", result);
 
             // Update ticket closed date
             await Update(ticket);
@@ -130,11 +133,12 @@ namespace GrafanaAlerts.Infrastructure.Repositories
         {
             using var connection = OpenConnection(_connectionString);
 
-            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticketId);
+            var recorded = connection.Query<TroubleTicketDTO>($"select * from Troubles where AlertId = {ticketId}");
 
-            var troubleTickets = recorded as TroubleTicketDTO[] ?? recorded.ToArray();
+            var troubleTickets = recorded.ToList();
+            _logger.LogInformation("Got tickets: {@Ticket}", troubleTickets);
 
-            if (troubleTickets.Length == 0)
+            if (troubleTickets.Count == 0)
                 throw new ArgumentException("There is no ticket with specified name", nameof(ticketId));
 
             return troubleTickets[0];
