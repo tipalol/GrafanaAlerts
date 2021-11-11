@@ -6,7 +6,7 @@
             <request xmlns="">
                 <activity xmlns="urn:gf-trouble-ticket-management:xsd">
                     <operationDate>[DateTime]</operationDate>
-                    <systemID>2</systemID>
+                    <systemID>0</systemID>
                     <operationId>[GUID]</operationId>
                     <comment>Авария не активна</comment>
                     <operator>BeeInside</operator>
