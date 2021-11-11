@@ -113,10 +113,22 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             var troubleTickets = recorded.ToList();
             _logger.LogInformation("Tickets: {@Tickets}", JsonSerializer.Serialize(troubleTickets));
             
-            if (troubleTickets.Count == 0)
-                return false;
-            
-            return troubleTickets[0].ClosedDate == DateTime.MinValue;
+            switch (troubleTickets.Count)
+            {
+                case 0:
+                    return false;
+                case 1:
+                    return troubleTickets[0].ClosedDate == DateTime.MinValue;
+                default:
+                {
+                    var lastTicket = 
+                        (from ticket in troubleTickets 
+                            orderby ticket.ClosedDate descending 
+                            select ticket).First();
+
+                    return lastTicket.ClosedDate == DateTime.MinValue;
+                }
+            }
         }
 
         private async Task Update(TroubleTicketDTO ticket)
@@ -139,10 +151,22 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             var troubleTickets = recorded.ToList();
             _logger.LogInformation("Got tickets: {@Ticket}", troubleTickets);
 
-            if (troubleTickets.Count == 0)
-                throw new ArgumentException("There is no ticket with specified name", nameof(ticketId));
+            switch (troubleTickets.Count)
+            {
+                case 0:
+                    throw new ArgumentException("There is no ticket with specified name", nameof(ticketId));
+                case 1:
+                    return troubleTickets[0];
+                default:
+                {
+                    var lastTicket = 
+                        (from ticket in troubleTickets 
+                            orderby ticket.ClosedDate descending 
+                            select ticket).First();
 
-            return troubleTickets[0];
+                    return lastTicket;
+                }
+            }
         }
 
         private static IDbConnection OpenConnection(string connectionString)
