@@ -87,7 +87,7 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 CreationDate = DateTime.Now,
                 ClosedDate = DateTime.MinValue
             };
-
+            
             using var connection = OpenConnection(_connectionString);
 
             const string query = "insert into Troubles (AlertId, TroubleId, CreationDate, ClosedDate) values (@AlertId, @TroubleId, @CreationDate, @ClosedDate)";
@@ -115,17 +115,23 @@ namespace GrafanaAlerts.Infrastructure.Repositories
             
             switch (troubleTickets.Count)
             {
+                // If there is no tickets with this ticketId
                 case 0:
                     return false;
+                // If there is only one ticket with this ticketId
                 case 1:
+                    // Check if ticket has closed date (DateTime.MinValue if not)
                     return troubleTickets[0].ClosedDate == DateTime.MinValue;
+                // If there are multiple tickets with this ticketId
                 default:
                 {
+                    // Search for a ticket with latest creation date
                     var lastTicket = 
                         (from ticket in troubleTickets 
-                            orderby ticket.ClosedDate descending 
+                            orderby ticket.CreationDate descending 
                             select ticket).First();
 
+                    // Check if ticket has closed date (DateTime.MinValue if not)
                     return lastTicket.ClosedDate == DateTime.MinValue;
                 }
             }
@@ -161,7 +167,7 @@ namespace GrafanaAlerts.Infrastructure.Repositories
                 {
                     var lastTicket = 
                         (from ticket in troubleTickets 
-                            orderby ticket.ClosedDate descending 
+                            orderby ticket.CreationDate descending 
                             select ticket).First();
 
                     return lastTicket;
