@@ -6,13 +6,13 @@
             <request xmlns="">
                 <activity xmlns="urn:gf-trouble-ticket-management:xsd">
                     <operationDate>[DateTime]</operationDate>
-                    <systemID>0</systemID>
+                    <systemID>2</systemID>
                     <operationId>[GUID]</operationId>
                     <comment>Авария не активна</comment>
                     <operator>BeeInside</operator>
                 </activity>
                 <TTID xmlns="urn:gf-trouble-ticket-management:xsd">
-                    <systemID>2</systemID>
+                    <systemID>0</systemID>
                     <internalTTID>[ID]</internalTTID>
                 </TTID>
                 <ownerSystem xmlns="urn:gf-trouble-ticket-management:xsd">0</ownerSystem>
