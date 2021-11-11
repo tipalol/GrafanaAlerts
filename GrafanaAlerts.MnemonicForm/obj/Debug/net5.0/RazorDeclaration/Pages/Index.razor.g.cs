@@ -82,6 +82,34 @@ using GrafanaAlerts.MnemonicForm.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+using GrafanaAlerts.MnemonicForm.Repositories;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+using GrafanaAlerts.MnemonicForm.DTO;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+using Newtonsoft.Json;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,34 +119,111 @@ using GrafanaAlerts.MnemonicForm.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+#line 87 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
        
     // inject jsruntime to call javascript code
     [Inject] public IJSRuntime JSRuntime { get; set; }
 
     // hold the callback selected value
     public string SelectedValue { get; set; }
+    
+    public int Step { get; set; }
+
+    public string Message { get; set; } = "Выберите КЕ из списка";
+
+    public List<string> Mnemonics { get; set; } = new();
+    public string Ke { get; set; }
+    public string InitiatorType { get; set; }
+    public string InitiatorRole { get; set; }
+    public string ResponseRole { get; set; }
+    public string Priority { get; set; }
+
+    public TroubleInfoDTO TroubleInfo;
 
     // call the javascript method to init the select picker
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender) // only needs to be called once per page render
         {
-            await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", ".selectpicker");
+            Step = 1;
+            Mnemonics = _mnemonicsRepository.LoadKe();
+            StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#ke");
+            StateHasChanged();
         }
     }
 
     // method which will be triggered by javascript, need to pass the method name 
     [JSInvokable]
-    public void OnSelectedValue(string val)
+    public async void OnSelectedValue(string val)
     {
         SelectedValue = val;
+        if (SelectedValue.Contains("Ничего")) return;
+        switch (Step)
+        {
+            case 1:
+                Ke = val;
+                Mnemonics = _mnemonicsRepository.LoadInitiatorTypes();
+                Step++;
+                Message = "Выберите тип заводящего инцидент";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#ke");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#initTypes");
+                StateHasChanged();
+                break;
+            case 2:
+                InitiatorType = val;
+                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Step++;
+                Message = "Выберите роль заводящего инцидент";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initTypes");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#initRoles");
+                StateHasChanged();
+                break;
+            case 3:
+                InitiatorRole = val;
+                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Step++;
+                Message = "Выберите роль ответственного";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initRoles");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#responseRoles");
+                StateHasChanged();
+                break;
+            case 4:
+                ResponseRole = val;
+                Mnemonics = _mnemonicsRepository.LoadPriorities();
+                Step++;
+                Message = "Выберите приоритет";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#responseRoles");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#priorities");
+                StateHasChanged();
+                break;
+            case 5:
+                Priority = val;
+                Step++;
+                Message = "Спасибо! Код алерта: ";
+                TroubleInfo = new TroubleInfoDTO()
+                {
+                    Ke = Ke,
+                    InitiatorType = InitiatorType,
+                    InitiatorRole = InitiatorRole,
+                    ResponseRole = ResponseRole,
+                    Priority = Priority
+                };
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#priorities");
+                StateHasChanged();
+                break;
+        }
         StateHasChanged();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IMnemonicsRepository _mnemonicsRepository { get; set; }
     }
 }
 #pragma warning restore 1591

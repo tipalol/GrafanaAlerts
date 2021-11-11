@@ -1,19 +1,79 @@
 @page "/"
+@using GrafanaAlerts.MnemonicForm.Repositories
+@using GrafanaAlerts.MnemonicForm.DTO
+@using System.Text.Json
+@using Newtonsoft.Json
+@inject IMnemonicsRepository _mnemonicsRepository
 
-<div class="container">
-    <h1>Костыль</h1>
-    
-    На этой странице вы можете.. ничего
-    
-    <br/>
-    
-    <select class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
-        <option data-tokens="ketchup mustard" style="background-color: #3C3C3C !important;">Hot Dog, Fries and a Soda</option>
-        <option data-tokens="mustard" style="background-color: #3C3C3C !important;">Burger, Shake and a Smile</option>
-        <option data-tokens="frosting" style="background-color: #3C3C3C !important;">Sugar, Spice and all things nice</option>
-    </select>
+<div class="container" style="height: 300px;">
+    <div class=""><h1>Костыль</h1></div>
+    <p>Тут вы сможете выбрать мнемоники без боли</p>
+    @if (!string.IsNullOrEmpty(Ke)){<p>Выбранная КЕ: @Ke</p>}
+    @if (!string.IsNullOrEmpty(InitiatorType)){<p>Тип заводящего: @InitiatorType</p>}
+    @if (!string.IsNullOrEmpty(InitiatorRole)){<p>Роль заводящего: @InitiatorRole</p>}
+    @if (!string.IsNullOrEmpty(ResponseRole)){<p>Роль ответственного: @ResponseRole</p>}
+    @if (!string.IsNullOrEmpty(Priority)){<p>Приоритет: @Priority</p>}
+</div>
 
-    @if (!string.IsNullOrEmpty(SelectedValue))
+<div class="container justify-content-center align-items-center d-flex" style="margin-top: 10%">
+    <p style="padding-right: 5em; padding-top: 1em;">@Message</p>
+    
+    @if (Mnemonics.Count > 0 && Step == 1)
+    {
+        <select id="ke" class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+            <option style="background-color: #3C3C3C !important;">Ничего не выбрано</option>
+            @foreach (var option in Mnemonics)
+            {
+                <option data-tokens="@option" style="background-color: #3C3C3C !important;">@option</option>
+            }
+        </select>
+    }
+    @if (Mnemonics.Count > 0 && Step == 2)
+                {
+                    <select id="initTypes" class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+                        <option style="background-color: #3C3C3C !important;">Ничего не выбрано</option>
+                        @foreach (var option in Mnemonics)
+                        {
+                            <option data-tokens="@option" style="background-color: #3C3C3C !important;">@option</option>
+                        }
+                    </select>
+                }
+    @if (Mnemonics.Count > 0 && Step == 3)
+        {
+            <select id="initRoles" class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+                <option style="background-color: #3C3C3C !important;">Ничего не выбрано</option>
+                @foreach (var option in Mnemonics)
+                {
+                    <option data-tokens="@option" style="background-color: #3C3C3C !important;">@option</option>
+                }
+            </select>
+        }
+    @if (Mnemonics.Count > 0 && Step == 4)
+            {
+                <select id="responseRoles" class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+                    <option style="background-color: #3C3C3C !important;">Ничего не выбрано</option>
+                    @foreach (var option in Mnemonics)
+                    {
+                        <option data-tokens="@option" style="background-color: #3C3C3C !important;">@option</option>
+                    }
+                </select>
+            }
+    @if (Mnemonics.Count > 0 && Step == 5)
+                {
+                    <select id="priorities" class="selectpicker" data-live-search="true" style="background-color: #3C3C3C !important;">
+                        <option style="background-color: #3C3C3C !important;">Ничего не выбрано</option>
+                        @foreach (var option in Mnemonics)
+                        {
+                            <option data-tokens="@option" style="background-color: #3C3C3C !important;">@option</option>
+                        }
+                    </select>
+                }
+    @if (Step == 6 && TroubleInfo != null)
+    {
+        <input type="text" value="@JsonConvert.SerializeObject(TroubleInfo, Formatting.None)" readonly/>
+    }
+    
+    @if (!string.IsNullOrEmpty(SelectedValue) && false)
     {
         <div>
             <p class="text-success">
@@ -30,21 +90,97 @@
 
     // hold the callback selected value
     public string SelectedValue { get; set; }
+    
+    public int Step { get; set; }
+
+    public string Message { get; set; } = "Выберите КЕ из списка";
+
+    public List<string> Mnemonics { get; set; } = new();
+    public string Ke { get; set; }
+    public string InitiatorType { get; set; }
+    public string InitiatorRole { get; set; }
+    public string ResponseRole { get; set; }
+    public string Priority { get; set; }
+
+    public TroubleInfoDTO TroubleInfo;
 
     // call the javascript method to init the select picker
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender) // only needs to be called once per page render
         {
-            await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", ".selectpicker");
+            Step = 1;
+            Mnemonics = _mnemonicsRepository.LoadKe();
+            StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#ke");
+            StateHasChanged();
         }
     }
 
     // method which will be triggered by javascript, need to pass the method name 
     [JSInvokable]
-    public void OnSelectedValue(string val)
+    public async void OnSelectedValue(string val)
     {
         SelectedValue = val;
+        if (SelectedValue.Contains("Ничего")) return;
+        switch (Step)
+        {
+            case 1:
+                Ke = val;
+                Mnemonics = _mnemonicsRepository.LoadInitiatorTypes();
+                Step++;
+                Message = "Выберите тип заводящего инцидент";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#ke");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#initTypes");
+                StateHasChanged();
+                break;
+            case 2:
+                InitiatorType = val;
+                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Step++;
+                Message = "Выберите роль заводящего инцидент";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initTypes");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#initRoles");
+                StateHasChanged();
+                break;
+            case 3:
+                InitiatorRole = val;
+                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Step++;
+                Message = "Выберите роль ответственного";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initRoles");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#responseRoles");
+                StateHasChanged();
+                break;
+            case 4:
+                ResponseRole = val;
+                Mnemonics = _mnemonicsRepository.LoadPriorities();
+                Step++;
+                Message = "Выберите приоритет";
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#responseRoles");
+                StateHasChanged();
+                await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#priorities");
+                StateHasChanged();
+                break;
+            case 5:
+                Priority = val;
+                Step++;
+                Message = "Спасибо! Код алерта: ";
+                TroubleInfo = new TroubleInfoDTO()
+                {
+                    Ke = Ke,
+                    InitiatorType = InitiatorType,
+                    InitiatorRole = InitiatorRole,
+                    ResponseRole = ResponseRole,
+                    Priority = Priority
+                };
+                await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#priorities");
+                StateHasChanged();
+                break;
+        }
         StateHasChanged();
     }
 }

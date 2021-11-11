@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using GrafanaAlerts.MnemonicForm.Data;
+using GrafanaAlerts.MnemonicForm.Repositories;
 
 namespace GrafanaAlerts.MnemonicForm
 {
@@ -28,7 +28,7 @@ namespace GrafanaAlerts.MnemonicForm
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<IMnemonicsRepository, MnemonicsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

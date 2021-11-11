@@ -46,6 +46,9 @@
             dotnetHelper.invokeMethodAsync(callbackMethodName, $(pickerElementName).val());
         });
     }
+    window.DestroySelectPicker = (pickerElementName) => {
+        $(pickerElementName).selectpicker('destroy');    
+    }
 </script>
 </body>
 </html>

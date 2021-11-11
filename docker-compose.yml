@@ -21,3 +21,7 @@ services:
       - pg_data:/var/lib/postgresql/data
     ports:
       - ${POSTGRES_PORT:-5432}:5432
+  mnemonics_form:
+    build: ./GrafanaAlerts.MnemonicForm
+    ports:
+      - "8001:8001"

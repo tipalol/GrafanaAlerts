@@ -29,7 +29,7 @@ namespace GrafanaAlerts.Infrastructure.Helpers
 
         public static string GetTroubleId(string ttResponse)
         {
-            const string searchTag = "<ns2:internalTTID>";
+            const string searchTag = "<ns3:internalTTID>";
             var idTagPosition = ttResponse.LastIndexOf(searchTag, StringComparison.Ordinal) + searchTag.Length;
             var id = "";
 

@@ -83,3 +83,19 @@ a, .btn-link {
 {
     background-color: #3C3C3C !important;
 }
+
+.btn-light:hover
+{
+    color: #F0F0F0;
+    border-color: #005cbf;
+}
+
+.filter-option-inner-inner
+{
+    color: #F0F0F0 !important;
+}
+
+.dropdown-item
+{
+    color: #F0F0F0 !important;
+}

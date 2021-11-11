@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using GrafanaAlerts.Core.Entities;
 using GrafanaAlerts.Core.Repositories;
@@ -101,14 +102,17 @@ namespace GrafanaAlerts.Infrastructure.Repositories
         {
             using var connection = OpenConnection(_connectionString);
 
-            var recorded = connection.Query<TroubleTicketDTO>("select * from Troubles where AlertId = @Id", ticketId);
+            _logger.LogInformation("Check if ticket with alertId: {@Id} exists", ticketId);
+            _logger.LogInformation("select * from Troubles where AlertId = {Id}", ticketId);
+            var recorded = connection.Query<TroubleTicketDTO>($"select * from Troubles where AlertId = {ticketId}");
 
-            var troubleTickets = recorded as TroubleTicketDTO[] ?? recorded.ToArray();
+            var troubleTickets = recorded.ToList();
+            _logger.LogInformation("Tickets: {@Tickets}", JsonSerializer.Serialize(troubleTickets));
             
-            if (troubleTickets.Length == 0)
+            if (troubleTickets.Count == 0)
                 return false;
             
-            return troubleTickets[0].ClosedDate != DateTime.MinValue;
+            return troubleTickets[0].ClosedDate == DateTime.MinValue;
         }
 
         private async Task Update(TroubleTicketDTO ticket)

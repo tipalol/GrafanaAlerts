@@ -49,3 +49,4 @@
 /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/obj/Debug/net5.0/GrafanaAlerts.MnemonicForm.pdb
 /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/obj/Debug/net5.0/GrafanaAlerts.MnemonicForm.genruntimeconfig.cache
 /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/obj/Debug/net5.0/GrafanaAlerts.MnemonicForm.csproj.CopyComplete
+/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/bin/Debug/net5.0/Newtonsoft.Json.dll
