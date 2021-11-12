@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Dapper;
 using GrafanaAlerts.MnemonicForm.DTO;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 
@@ -17,32 +16,20 @@ namespace GrafanaAlerts.MnemonicForm.Repositories
             _connectionString = configuration["ConnectionString"];
         }
         
-        public List<string> LoadKe()
+        public List<AppDTO> LoadKe()
         {
             using var connection = new MySqlConnection(_connectionString);
-            var kes = connection.Query<string>("select which returns all ke");
-            //return kes.ToList();
-
-            return new List<string>()
-            {
-                "Playstation 4",
-                "xBox 360",
-                "Playstation 5"
-            };
+            var kes = connection.Query<AppDTO>("select * from dbo.V_Grafana_APP");
+            
+            return kes.ToList();
         }
 
-        public List<string> LoadRoles()
+        public List<RoleDTO> LoadRoles()
         {
             using var connection = new MySqlConnection(_connectionString);
-            var kes = connection.Query<string>("select which returns all roles");
-            //return kes.ToList();
+            var kes = connection.Query<RoleDTO>("select * from dbo.V_Grafana_OS");
             
-            return new List<string>()
-            {
-                "Работничек",
-                "Манагер",
-                "Директор"
-            };
+            return kes.ToList();
         }
 
         public List<string> LoadPriorities()
