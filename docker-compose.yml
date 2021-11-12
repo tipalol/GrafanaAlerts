@@ -24,4 +24,4 @@ services:
   mnemonics_form:
     build: ./GrafanaAlerts.MnemonicForm
     ports:
-      - "8001:8001"
+      - "8001:81"
