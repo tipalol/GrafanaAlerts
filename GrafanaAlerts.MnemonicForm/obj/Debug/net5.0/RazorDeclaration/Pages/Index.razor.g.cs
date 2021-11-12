@@ -119,7 +119,7 @@ using Newtonsoft.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 87 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
+#line 78 "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor"
        
     // inject jsruntime to call javascript code
     [Inject] public IJSRuntime JSRuntime { get; set; }
@@ -137,6 +137,9 @@ using Newtonsoft.Json;
     public string InitiatorRole { get; set; }
     public string ResponseRole { get; set; }
     public string Priority { get; set; }
+    
+    public List<AppDTO> Apps { get; set; }
+    public List<RoleDTO> Roles { get; set; }
 
     public TroubleInfoDTO TroubleInfo;
 
@@ -146,7 +149,8 @@ using Newtonsoft.Json;
         if (firstRender) // only needs to be called once per page render
         {
             Step = 1;
-            Mnemonics = _mnemonicsRepository.LoadKe();
+            Apps = _mnemonicsRepository.LoadKe();
+            Mnemonics = (from app in Apps select app.Name).ToList();
             StateHasChanged();
             await JSRuntime.InvokeVoidAsync("InitSelectPicker", DotNetObjectReference.Create(this), "OnSelectedValue", "#ke");
             StateHasChanged();
@@ -173,7 +177,8 @@ using Newtonsoft.Json;
                 break;
             case 2:
                 InitiatorType = val;
-                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Roles = _mnemonicsRepository.LoadRoles();
+                Mnemonics = (from role in Roles select role.Name).ToList();
                 Step++;
                 Message = "Выберите роль заводящего инцидент";
                 await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initTypes");
@@ -183,7 +188,7 @@ using Newtonsoft.Json;
                 break;
             case 3:
                 InitiatorRole = val;
-                Mnemonics = _mnemonicsRepository.LoadRoles();
+                Mnemonics = (from role in Roles select role.Name).ToList();
                 Step++;
                 Message = "Выберите роль ответственного";
                 await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#initRoles");
@@ -207,10 +212,10 @@ using Newtonsoft.Json;
                 Message = "Спасибо! Код алерта: ";
                 TroubleInfo = new TroubleInfoDTO()
                 {
-                    Ke = Ke,
+                    Ke = (from app in Apps where app.Name == Ke select app.Mnemonics).First(),
                     InitiatorType = InitiatorType,
-                    InitiatorRole = InitiatorRole,
-                    ResponseRole = ResponseRole,
+                    InitiatorRole = (from role in Roles where role.Name == InitiatorRole select role.Code).First(),
+                    ResponseRole = (from role in Roles where role.Name == ResponseRole select role.Code).First(),
                     Priority = Priority
                 };
                 await JSRuntime.InvokeVoidAsync("DestroySelectPicker", "#priorities");

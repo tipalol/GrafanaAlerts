@@ -36,6 +36,11 @@ namespace GrafanaAlerts.API.Services.Implementations
             var tags = request.Tags;
             ThrowIfNull(tags, nameof(request.Tags), request);
 
+            if (tags.ContainsKey("Code"))
+            {
+                
+            }
+
             try
             {
                 var role = tags[RoleTag];

@@ -141,9 +141,9 @@ namespace GrafanaAlerts.Infrastructure.Repositories
         {
             using var connection = OpenConnection(_connectionString);
 
-            const string query = "update Troubles set ClosedDate = @ClosedDate where TroubleId = @TroubleId";
+            var query = $"update Troubles set ClosedDate = {ticket.ClosedDate} where TroubleId = {ticket.TroubleId}";
 
-            var affected = await connection.ExecuteAsync(query, ticket);
+            var affected = await connection.ExecuteAsync(query);
             
             _logger.LogInformation("Ticket updated, {RowsAffected} rows affected", affected);
         }

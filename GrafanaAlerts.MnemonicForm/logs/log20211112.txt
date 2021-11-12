@@ -1,0 +1,220 @@
+2021-11-12 13:44:59.666 +05:00 [INF] Starting web host
+2021-11-12 13:45:00.679 +05:00 [INF] User profile is available. Using '/Users/tipalol/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2021-11-12 13:45:06.665 +05:00 [INF] Now listening on: https://localhost:5001
+2021-11-12 13:45:06.679 +05:00 [INF] Now listening on: http://localhost:5000
+2021-11-12 13:45:06.702 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-11-12 13:45:06.705 +05:00 [INF] Hosting environment: Development
+2021-11-12 13:45:06.706 +05:00 [INF] Content root path: /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm
+2021-11-12 13:45:12.236 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2021-11-12 13:45:12.611 +05:00 [INF] Executing endpoint '/_Host'
+2021-11-12 13:45:12.857 +05:00 [INF] Route matched with {page = "/_Host"}. Executing page /_Host
+2021-11-12 13:45:12.908 +05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2021-11-12 13:45:12.959 +05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2021-11-12 13:45:14.144 +05:00 [INF] Executed page /_Host in 1273.1099ms
+2021-11-12 13:45:14.153 +05:00 [INF] Executed endpoint '/_Host'
+2021-11-12 13:45:14.160 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 1942.6564ms
+2021-11-12 13:45:14.619 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/bootstrap-select.min.css - -
+2021-11-12 13:45:14.796 +05:00 [INF] Sending file. Request path: '/css/bootstrap-select.min.css'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/css/bootstrap-select.min.css'
+2021-11-12 13:45:14.814 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/bootstrap-select.min.css - - - 200 11120 text/css 187.6510ms
+2021-11-12 13:45:14.817 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/bootstrap-select.min.js - -
+2021-11-12 13:45:14.848 +05:00 [INF] Sending file. Request path: '/js/bootstrap-select.min.js'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/js/bootstrap-select.min.js'
+2021-11-12 13:45:14.849 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/bootstrap-select.min.js - - - 200 52249 application/javascript 31.6213ms
+2021-11-12 13:45:14.850 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/site.js - -
+2021-11-12 13:45:14.871 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/site.js - - - 404 0 - 20.7423ms
+2021-11-12 13:45:14.874 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/bootstrap/bootstrap.min.css - -
+2021-11-12 13:45:14.901 +05:00 [INF] The file /css/bootstrap/bootstrap.min.css was not modified
+2021-11-12 13:45:14.905 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/bootstrap/bootstrap.min.css - - - 304 - text/css 30.3275ms
+2021-11-12 13:45:14.906 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/blazor.server.js - -
+2021-11-12 13:45:14.913 +05:00 [INF] The file /_framework/blazor.server.js was not modified
+2021-11-12 13:45:14.914 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/blazor.server.js - - - 304 - application/javascript 7.4388ms
+2021-11-12 13:45:15.002 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/bootstrap.js - -
+2021-11-12 13:45:15.002 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/jquery.js - -
+2021-11-12 13:45:15.003 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/GrafanaAlerts.MnemonicForm.styles.css - -
+2021-11-12 13:45:15.004 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/popper.js - -
+2021-11-12 13:45:15.003 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/site.css - -
+2021-11-12 13:45:15.012 +05:00 [INF] Sending file. Request path: '/GrafanaAlerts.MnemonicForm.styles.css'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/obj/Debug/net5.0/scopedcss/bundle/GrafanaAlerts.MnemonicForm.styles.css'
+2021-11-12 13:45:15.012 +05:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/css/site.css'
+2021-11-12 13:45:15.015 +05:00 [INF] Sending file. Request path: '/js/bootstrap.js'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/js/bootstrap.js'
+2021-11-12 13:45:15.015 +05:00 [INF] Sending file. Request path: '/js/jquery.js'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/js/jquery.js'
+2021-11-12 13:45:15.016 +05:00 [INF] Sending file. Request path: '/js/popper.js'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/js/popper.js'
+2021-11-12 13:45:15.018 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/css/open-iconic-bootstrap.min.css - -
+2021-11-12 13:45:15.020 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/site.css - - - 200 1503 text/css 17.8567ms
+2021-11-12 13:45:15.020 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/GrafanaAlerts.MnemonicForm.styles.css - - - 200 1814 text/css 17.7915ms
+2021-11-12 13:45:15.027 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/popper.js - - - 200 20336 application/javascript 24.5759ms
+2021-11-12 13:45:15.027 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/bootstrap.js - - - 200 51039 application/javascript 24.5319ms
+2021-11-12 13:45:15.027 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/jquery.js - - - 200 69916 application/javascript 24.4597ms
+2021-11-12 13:45:15.128 +05:00 [INF] The file /css/open-iconic/font/css/open-iconic-bootstrap.min.css was not modified
+2021-11-12 13:45:15.131 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/css/open-iconic-bootstrap.min.css - - - 304 - text/css 112.9173ms
+2021-11-12 13:45:15.614 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - -
+2021-11-12 13:45:15.614 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0
+2021-11-12 13:45:15.614 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/grafana.png - -
+2021-11-12 13:45:15.624 +05:00 [INF] The file /img/grafana.png was not modified
+2021-11-12 13:45:15.624 +05:00 [INF] The file /img/morty-icon-16.png was not modified
+2021-11-12 13:45:15.639 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/grafana.png - - - 304 - image/png 24.3937ms
+2021-11-12 13:45:15.643 +05:00 [INF] Executing endpoint '/_blazor/negotiate'
+2021-11-12 13:45:15.660 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - - - 304 - image/png 46.5617ms
+2021-11-12 13:45:15.714 +05:00 [INF] Executed endpoint '/_blazor/negotiate'
+2021-11-12 13:45:15.714 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0 - 200 316 application/json 161.1742ms
+2021-11-12 13:45:16.106 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/fonts/open-iconic.woff - -
+2021-11-12 13:45:16.133 +05:00 [INF] Sending file. Request path: '/css/open-iconic/font/fonts/open-iconic.woff'. Physical path: '/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/wwwroot/css/open-iconic/font/fonts/open-iconic.woff'
+2021-11-12 13:45:16.137 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/fonts/open-iconic.woff - - - 200 14984 application/font-woff 34.5431ms
+2021-11-12 13:45:16.621 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_blazor?id=w0XWxUoCNYSwt-wQJ_KkzQ - -
+2021-11-12 13:45:16.635 +05:00 [INF] Executing endpoint '/_blazor'
+2021-11-12 13:45:16.645 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon-precomposed.png - -
+2021-11-12 13:45:16.661 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon-precomposed.png - - - 404 0 - 15.4249ms
+2021-11-12 13:45:16.663 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - -
+2021-11-12 13:45:16.664 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/apple-touch-icon.png - - - 404 0 - 1.3897ms
+2021-11-12 13:45:33.036 +05:00 [WRN] Unhandled exception rendering component: Unable to connect to any of the specified MySQL hosts.
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1093
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at GrafanaAlerts.MnemonicForm.Repositories.MnemonicsRepository.LoadKe() in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Repositories/MnemonicsRepository.cs:line 22
+   at GrafanaAlerts.MnemonicForm.Pages.Index.OnAfterRenderAsync(Boolean firstRender) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor:line 107
+2021-11-12 13:45:33.495 +05:00 [ERR] Unhandled exception in circuit 'qR2NdIScqrhiUXqU95qPMiqpwHztgA6utNbBhIx9fuQ'.
+System.AggregateException: One or more errors occurred. (Unable to connect to any of the specified MySQL hosts.)
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1093
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at GrafanaAlerts.MnemonicForm.Repositories.MnemonicsRepository.LoadKe() in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Repositories/MnemonicsRepository.cs:line 22
+   at GrafanaAlerts.MnemonicForm.Pages.Index.OnAfterRenderAsync(Boolean firstRender) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor:line 107
+   --- End of inner exception stack trace ---
+2021-11-12 13:45:33.713 +05:00 [INF] Executed endpoint '/_blazor'
+2021-11-12 13:45:33.715 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_blazor?id=w0XWxUoCNYSwt-wQJ_KkzQ - - - 101 - - 17096.9663ms
+2021-11-12 14:29:20.773 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/ - -
+2021-11-12 14:29:20.880 +05:00 [INF] Executing endpoint '/_Host'
+2021-11-12 14:29:21.024 +05:00 [INF] Route matched with {page = "/_Host"}. Executing page /_Host
+2021-11-12 14:29:21.133 +05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2021-11-12 14:29:21.149 +05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2021-11-12 14:29:21.541 +05:00 [INF] Executed page /_Host in 509.4702ms
+2021-11-12 14:29:21.545 +05:00 [INF] Executed endpoint '/_Host'
+2021-11-12 14:29:21.549 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 791.2669ms
+2021-11-12 14:29:21.585 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/site.js - -
+2021-11-12 14:29:21.620 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/site.js - - - 404 0 - 35.1468ms
+2021-11-12 14:29:21.621 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/bootstrap-select.min.js - -
+2021-11-12 14:29:21.622 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryJ2Mqih7BxIdsJmII 359
+2021-11-12 14:29:21.637 +05:00 [INF] Executing endpoint 'Blazor disconnect'
+2021-11-12 14:29:21.643 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/popper.js - -
+2021-11-12 14:29:21.656 +05:00 [INF] The file /js/bootstrap-select.min.js was not modified
+2021-11-12 14:29:21.656 +05:00 [INF] The file /js/popper.js was not modified
+2021-11-12 14:29:21.660 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/bootstrap-select.min.js - - - 304 - application/javascript 38.8180ms
+2021-11-12 14:29:21.660 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/popper.js - - - 304 - application/javascript 17.2096ms
+2021-11-12 14:29:21.661 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/bootstrap.js - -
+2021-11-12 14:29:21.661 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/bootstrap/bootstrap.min.css - -
+2021-11-12 14:29:21.662 +05:00 [INF] The file /js/bootstrap.js was not modified
+2021-11-12 14:29:21.662 +05:00 [INF] The file /css/bootstrap/bootstrap.min.css was not modified
+2021-11-12 14:29:21.662 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/bootstrap.js - - - 304 - application/javascript 0.7357ms
+2021-11-12 14:29:21.704 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/bootstrap/bootstrap.min.css - - - 304 - text/css 42.0478ms
+2021-11-12 14:29:21.704 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_framework/blazor.server.js - -
+2021-11-12 14:29:21.706 +05:00 [INF] The file /_framework/blazor.server.js was not modified
+2021-11-12 14:29:21.706 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_framework/blazor.server.js - - - 304 - application/javascript 3.0274ms
+2021-11-12 14:29:21.719 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/GrafanaAlerts.MnemonicForm.styles.css - -
+2021-11-12 14:29:21.719 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/site.css - -
+2021-11-12 14:29:21.720 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/js/jquery.js - -
+2021-11-12 14:29:21.721 +05:00 [INF] The file /GrafanaAlerts.MnemonicForm.styles.css was not modified
+2021-11-12 14:29:21.721 +05:00 [INF] The file /css/site.css was not modified
+2021-11-12 14:29:21.721 +05:00 [INF] The file /js/jquery.js was not modified
+2021-11-12 14:29:21.722 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/GrafanaAlerts.MnemonicForm.styles.css - - - 304 - text/css 1.8414ms
+2021-11-12 14:29:21.722 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/js/jquery.js - - - 304 - application/javascript 2.4551ms
+2021-11-12 14:29:21.725 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/bootstrap-select.min.css - -
+2021-11-12 14:29:21.725 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/css/open-iconic-bootstrap.min.css - -
+2021-11-12 14:29:21.723 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/site.css - - - 304 - text/css 3.1999ms
+2021-11-12 14:29:21.729 +05:00 [INF] The file /css/bootstrap-select.min.css was not modified
+2021-11-12 14:29:21.729 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/bootstrap-select.min.css - - - 304 - text/css 3.9377ms
+2021-11-12 14:29:21.729 +05:00 [INF] The file /css/open-iconic/font/css/open-iconic-bootstrap.min.css was not modified
+2021-11-12 14:29:21.729 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/css/open-iconic-bootstrap.min.css - - - 304 - text/css 3.8978ms
+2021-11-12 14:29:21.772 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0
+2021-11-12 14:29:21.772 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/grafana.png - -
+2021-11-12 14:29:21.772 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - -
+2021-11-12 14:29:21.773 +05:00 [INF] Executing endpoint '/_blazor/negotiate'
+2021-11-12 14:29:21.777 +05:00 [INF] The file /img/morty-icon-16.png was not modified
+2021-11-12 14:29:21.778 +05:00 [INF] The file /img/grafana.png was not modified
+2021-11-12 14:29:21.783 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - - - 304 - image/png 10.1379ms
+2021-11-12 14:29:21.783 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/grafana.png - - - 304 - image/png 11.0917ms
+2021-11-12 14:29:21.794 +05:00 [INF] Executed endpoint '/_blazor/negotiate'
+2021-11-12 14:29:21.798 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0 - 200 316 application/json 22.6042ms
+2021-11-12 14:29:21.799 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/fonts/open-iconic.woff - -
+2021-11-12 14:29:21.800 +05:00 [INF] The file /css/open-iconic/font/fonts/open-iconic.woff was not modified
+2021-11-12 14:29:21.800 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/css/open-iconic/font/fonts/open-iconic.woff - - - 304 - application/font-woff 0.9855ms
+2021-11-12 14:29:21.822 +05:00 [INF] Executed endpoint 'Blazor disconnect'
+2021-11-12 14:29:21.822 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:5001/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryJ2Mqih7BxIdsJmII 359 - 200 0 - 200.7922ms
+2021-11-12 14:29:21.841 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/_blazor?id=fQkSOGoYZpk2oKPs27ssfA - -
+2021-11-12 14:29:21.842 +05:00 [INF] Executing endpoint '/_blazor'
+2021-11-12 14:29:21.911 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - -
+2021-11-12 14:29:21.911 +05:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/img/grafana.png - -
+2021-11-12 14:29:21.913 +05:00 [INF] The file /img/grafana.png was not modified
+2021-11-12 14:29:21.913 +05:00 [INF] The file /img/morty-icon-16.png was not modified
+2021-11-12 14:29:21.913 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/morty-icon-16.png - - - 304 - image/png 2.0894ms
+2021-11-12 14:29:21.913 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/img/grafana.png - - - 304 - image/png 2.0815ms
+2021-11-12 14:29:37.022 +05:00 [WRN] Unhandled exception rendering component: Unable to connect to any of the specified MySQL hosts.
+MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1093
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at GrafanaAlerts.MnemonicForm.Repositories.MnemonicsRepository.LoadKe() in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Repositories/MnemonicsRepository.cs:line 22
+   at GrafanaAlerts.MnemonicForm.Pages.Index.OnAfterRenderAsync(Boolean firstRender) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor:line 107
+2021-11-12 14:29:37.096 +05:00 [ERR] Unhandled exception in circuit 'rezb0hHqK4_p_A0eL7bKpD1sscZsaS7BqXk2Itlf2PA'.
+System.AggregateException: One or more errors occurred. (Unable to connect to any of the specified MySQL hosts.)
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Unable to connect to any of the specified MySQL hosts.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   at MySql.Data.Common.StreamCreator.GetTcpStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.Common.StreamCreator.GetStream(MySqlConnectionStringBuilder settings, MyNetworkStream& networkStream)
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.NativeDriver.Open()
+   at MySql.Data.MySqlClient.Driver.Open()
+   at MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   at MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   at MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   at MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1093
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at GrafanaAlerts.MnemonicForm.Repositories.MnemonicsRepository.LoadKe() in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Repositories/MnemonicsRepository.cs:line 22
+   at GrafanaAlerts.MnemonicForm.Pages.Index.OnAfterRenderAsync(Boolean firstRender) in /Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.MnemonicForm/Pages/Index.razor:line 107
+   --- End of inner exception stack trace ---
+2021-11-12 14:29:37.173 +05:00 [INF] Executed endpoint '/_blazor'
+2021-11-12 14:29:37.177 +05:00 [INF] Request finished HTTP/1.1 GET https://localhost:5001/_blazor?id=fQkSOGoYZpk2oKPs27ssfA - - - 101 - - 15334.3082ms
+2021-11-12 14:48:10.975 +05:00 [INF] Application is shutting down...
