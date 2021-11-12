@@ -16,6 +16,6 @@ RUN dotnet publish "GrafanaAlerts.MnemonicForm.csproj" -c Release -o /app/publis
 
 FROM base AS final
 WORKDIR /app
-RUN apt-get update && apt-get install telnet
+
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "GrafanaAlerts.MnemonicForm.dll"]
