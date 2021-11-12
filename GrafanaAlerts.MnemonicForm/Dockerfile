@@ -1,4 +1,4 @@
-﻿FROM devorbitus/ubuntu-bash-jq-curl AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -16,5 +16,6 @@ RUN dotnet publish "GrafanaAlerts.MnemonicForm.csproj" -c Release -o /app/publis
 
 FROM base AS final
 WORKDIR /app
+RUN apt-get update && apt-get install telnet
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "GrafanaAlerts.MnemonicForm.dll"]
