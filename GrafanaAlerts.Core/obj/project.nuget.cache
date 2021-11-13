@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+oLitt+kr6UmNgLbkTTcV5YdQlk7HBN6FwFc2STffi4Xg0IjUU9+wiLEeLtBiool0slbuU7g/rd4uy9/IFTgzw==",
+  "dgSpecHash": "mL/MIyr0SFr5H4U4bF4UjbUhjqGSdbWUv+5fmxhsitOqyBtTtm8iOAMMoDFoE5ogWrsNkJMhCSLhkRR1kZph+Q==",
   "success": true,
   "projectFilePath": "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Core/GrafanaAlerts.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/tipalol/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/tipalol/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

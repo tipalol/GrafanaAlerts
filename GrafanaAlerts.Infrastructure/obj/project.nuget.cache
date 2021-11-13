@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VxCu9hfaSrG4VExRXathgiKzByoQtKN8xjLSUoSvDfFq96/cA3ZGdzV9XDiAkzTHqIZFFFNGbrTwzhAV8NbfKg==",
+  "dgSpecHash": "E1FRGHnduC9zG8QpTntZ8FMhZ5vmx466mDxYVnZ9fa8HPFLbtZhUboFS9Ss5JCEADwDy7OXK9DcViKjR5XKtPg==",
   "success": true,
   "projectFilePath": "/Users/tipalol/RiderProjects/GrafanaAlerts/GrafanaAlerts.Infrastructure/GrafanaAlerts.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,9 @@
     "/Users/tipalol/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/tipalol/.nuget/packages/npgsql/5.0.10/npgsql.5.0.10.nupkg.sha512",
-    "/Users/tipalol/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    "/Users/tipalol/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "/Users/tipalol/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/tipalol/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
 using GrafanaAlerts.MnemonicForm.DTO;
@@ -18,7 +19,7 @@ namespace GrafanaAlerts.MnemonicForm.Repositories
         
         public List<AppDTO> LoadKe()
         {
-            using var connection = new MySqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             var kes = connection.Query<AppDTO>("select * from dbo.V_Grafana_APP");
             
             return kes.ToList();
@@ -26,7 +27,7 @@ namespace GrafanaAlerts.MnemonicForm.Repositories
 
         public List<RoleDTO> LoadRoles()
         {
-            using var connection = new MySqlConnection(_connectionString);
+            using var connection = new SqlConnection(_connectionString);
             var kes = connection.Query<RoleDTO>("select * from dbo.V_Grafana_OS");
             
             return kes.ToList();
